@@ -3,7 +3,7 @@
 /// In case of error, the function genlmsg_put() returns NULL pointer
 /// not ERR_PTR(). The IS_ERR() test in the return value check should
 /// be replaced with NULL test.
-///
+/// 
 /// dpatch engine is used to auto generate this patch.
 /// (https://github.com/weiyj/dpatch)
 ///
@@ -23,4 +23,3 @@ ret = genlmsg_put(...);
 + -EMSGSIZE
 )
 ...>
-
