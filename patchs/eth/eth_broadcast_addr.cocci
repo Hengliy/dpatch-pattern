@@ -5,9 +5,6 @@
 /// Using eth_zero_addr() to assign broadcast address insetad
 /// of memset() or an inefficient copy from a static array that
 /// contains the all-ones broadcast address.
-/// 
-/// dpatch engine is used to auto generate this patch.
-/// (https://github.com/weiyj/dpatch)
 ///
 @r1@
 expression addr;

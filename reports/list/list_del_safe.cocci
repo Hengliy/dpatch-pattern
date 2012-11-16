@@ -6,10 +6,6 @@
 /// to use a safe version of the list_for_each() macro aptly named
 /// list_for_each_safe(). 
 ///
-/// dpatch engine is used to auto generate this patch.
-/// (https://github.com/weiyj/dpatch)
-///
-
 @@
 iterator name list_for_each;
 expression E;

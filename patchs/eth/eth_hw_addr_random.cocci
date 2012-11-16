@@ -5,9 +5,6 @@
 /// Using eth_hw_addr_random() to generate a random Ethernet address
 /// (MAC) to be used by a net device and set addr_assign_type.
 /// Not need to duplicating its implementation.
-/// 
-/// dpatch engine is used to auto generate this patch.
-/// (https://github.com/weiyj/dpatch)
 ///
 @@
 struct net_device *dev;

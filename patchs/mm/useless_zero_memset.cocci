@@ -2,9 +2,6 @@
 ///
 /// The memory return by kzalloc() or kmem_cache_zalloc() has already
 /// be set to zero, so remove useless memset(0).
-/// 
-/// dpatch engine is used to auto generate this patch.
-/// (https://github.com/weiyj/dpatch)
 ///
 @@
 expression E, E1;

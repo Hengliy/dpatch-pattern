@@ -4,9 +4,6 @@
 /// Except File: drivers/net/wireless/ath/ath6kl/main.c : special case that can not detect correctly
 ///
 /// Convert cpu_to_leXX(leXX_to_cpu(E1) + E2) to use leXX_add_cpu().
-/// 
-/// dpatch engine is used to auto generate this patch.
-/// (https://github.com/weiyj/dpatch)
 ///
 @@
 expression E1, E2;

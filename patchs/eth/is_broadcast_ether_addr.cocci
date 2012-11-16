@@ -3,9 +3,6 @@
 /// Using is_broadcast_ether_addr() instead of directly use
 /// memcmp() to determine if the ethernet address is broadcast
 /// address.
-/// 
-/// dpatch engine is used to auto generate this patch.
-/// (https://github.com/weiyj/dpatch)
 ///
 @r1@
 expression addr;

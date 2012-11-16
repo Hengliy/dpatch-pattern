@@ -20,9 +20,6 @@
 ///
 /// Add the missing unlock before return from function {{function}}
 /// in the error handling case.
-/// 
-/// dpatch engine is used to auto generate this patch.
-/// (https://github.com/weiyj/dpatch)
 ///
 @@
 expression E;

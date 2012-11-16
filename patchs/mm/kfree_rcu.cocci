@@ -2,9 +2,6 @@
 ///
 /// The callback function of call_rcu() just calls a kfree(), so we
 /// can use kfree_rcu() instead of call_rcu() + callback function.
-/// 
-/// dpatch engine is used to auto generate this patch.
-/// (https://github.com/weiyj/dpatch)
 ///
 @r1@
 type T;

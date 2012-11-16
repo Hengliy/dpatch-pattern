@@ -4,12 +4,9 @@
 ///
 /// Using eth_zero_addr() to assign zero address insetad of
 /// memset() or an inefficient copy from a static array.
-/// 
-/// dpatch engine is used to auto generate this patch.
-/// (https://github.com/weiyj/dpatch)
 ///
 @d1@
-identifier zero;
+identifier zero != {strIssueBssid, granted_mac};
 type	T;
 @@
 (

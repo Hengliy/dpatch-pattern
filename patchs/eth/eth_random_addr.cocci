@@ -5,9 +5,6 @@
 /// Using eth_random_addr() to generate a random Ethernet
 /// address (MAC) that is not multicast and has the local
 /// assigned bit set. Not need to duplicating its implementation.
-/// 
-/// dpatch engine is used to auto generate this patch.
-/// (https://github.com/weiyj/dpatch)
 ///
 @change_random@
 expression addr;

@@ -2,9 +2,6 @@
 ///
 /// Use the module_i2c_driver() macro to make the code smaller
 /// and a bit simpler.
-/// 
-/// dpatch engine is used to auto generate this patch.
-/// (https://github.com/weiyj/dpatch)
 ///
 @r1@
 identifier fn_init;

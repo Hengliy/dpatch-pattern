@@ -3,9 +3,6 @@
 /// Except File: include/linux/byteorder/generic.h : implementation file
 ///
 /// Convert cpu_to_beXX(beXX_to_cpu(E1) + E2) to use beXX_add_cpu().
-/// 
-/// dpatch engine is used to auto generate this patch.
-/// (https://github.com/weiyj/dpatch)
 ///
 @@
 expression E1, E2;

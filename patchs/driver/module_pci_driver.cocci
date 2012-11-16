@@ -4,9 +4,6 @@
 ///
 /// Use the module_pci_driver() macro to make the code simpler
 /// by eliminating module_init and module_exit calls.
-/// 
-/// dpatch engine is used to auto generate this patch.
-/// (https://github.com/weiyj/dpatch)
 ///
 @r1@
 identifier fn_init;

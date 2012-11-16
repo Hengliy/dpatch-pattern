@@ -9,9 +9,6 @@
 /// Also the documents in platform.c shows that platform_device_del
 /// and platform_device_put must _only_ be externally called in error
 /// cases.  All other usage is a bug.
-/// 
-/// dpatch engine is used to auto generate this patch.
-/// (https://github.com/weiyj/dpatch)
 ///
 
 @@

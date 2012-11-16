@@ -6,9 +6,6 @@
 /// or NULL pointer. The NULL test in the error handling should be
 /// replaced with IS_ERR_OR_NULL().
 /// 
-/// dpatch engine is used to auto generate this patch.
-/// (https://github.com/weiyj/dpatch)
-/// 
 ///
 @@
 expression ret, E;

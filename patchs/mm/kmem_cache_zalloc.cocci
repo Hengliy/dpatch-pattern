@@ -1,9 +1,6 @@
 /// use kmem_cache_zalloc instead of kmem_cache_alloc/memset
 ///
 /// Using kmem_cache_zalloc() instead of kmem_cache_alloc() and memset().
-/// 
-/// dpatch engine is used to auto generate this patch.
-/// (https://github.com/weiyj/dpatch)
 ///
 @@
 expression E, E1, E2, E3;

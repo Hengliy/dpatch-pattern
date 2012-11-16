@@ -3,9 +3,6 @@
 /// In case of error, the function voltdm_lookup() returns NULL
 /// not ERR_PTR(). The IS_ERR() test in the return value check
 /// should be replaced with NULL test.
-/// 
-/// dpatch engine is used to auto generate this patch.
-/// (https://github.com/weiyj/dpatch)
 ///
 @@
 expression ret;

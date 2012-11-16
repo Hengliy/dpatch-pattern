@@ -3,9 +3,6 @@
 /// This removes an open coded simple_open() function and
 /// replaces file operations references to the function
 /// with simple_open() instead.
-/// 
-/// dpatch engine is used to auto generate this patch.
-/// (https://github.com/weiyj/dpatch)
 ///
 
 @open@
