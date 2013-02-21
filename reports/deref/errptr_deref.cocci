@@ -56,6 +56,8 @@ if (IS_ERR@p(x)) {
 (
 PTR_ERR(x)
 |
+PTR_RET(x)
+|
 ERR_CAST(x)
 |
 IS_ERR(x)
