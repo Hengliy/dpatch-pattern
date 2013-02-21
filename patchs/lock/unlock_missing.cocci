@@ -17,6 +17,9 @@
 /// Except File: arch/powerpc/platforms/wsp/wsp_pci.c : special case that can not detect correctly
 /// Except File: arch/hexagon/kernel/traps.c : special case that can not detect correctly
 /// Except File: arch/alpha/lib/dec_and_lock.c : special case that can not detect correctly
+/// Except File: net/ipv4/ipmr.c : special case that can not detect correctly
+/// Except File: net/ipv6/ip6mr.c : special case that can not detect correctly
+/// Except File: drivers/vfio/vfio.c : special case that can not detect correctly
 ///
 /// Add the missing unlock before return from function {{function}}
 /// in the error handling case.
