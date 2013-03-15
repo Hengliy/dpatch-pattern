@@ -1,9 +1,8 @@
 /// use module_gameport_driver to simplify the code
 ///
-/// Use the module_gameport_driver() macro to make the code simpler
-/// by eliminating module_init and module_exit calls.
+/// module_gameport_driver() makes the code simpler by eliminating
+/// boilerplate code.
 ///
-
 @r1@
 identifier fn_init;
 identifier driver;

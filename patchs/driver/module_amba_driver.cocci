@@ -1,7 +1,7 @@
 /// use module_amba_driver to simplify the code
 ///
-/// Use the module_amba_driver() macro to make the code simpler
-/// by eliminating module_init and module_exit calls.
+/// module_amba_driver() makes the code simpler by eliminating
+/// boilerplate code.
 ///
 @r1@
 identifier fn_init;
