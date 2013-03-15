@@ -20,6 +20,11 @@
 /// Except File: net/ipv4/ipmr.c : special case that can not detect correctly
 /// Except File: net/ipv6/ip6mr.c : special case that can not detect correctly
 /// Except File: drivers/vfio/vfio.c : special case that can not detect correctly
+/// Except File: drivers/gpu/drm/ttm/ttm_bo.c : special case that can not detect correctly
+/// Except File: net/ceph/messenger.c : special case that can not detect correctly
+/// Except File: drivers/dma/ioat/dma_v2.c : special case that can not detect correctly
+/// Except File: mm/memcontrol.c : special case that can not detect correctly
+/// Except File: fs/autofs4/root.c : special case that can not detect correctly
 ///
 /// Add the missing unlock before return from function {{function}}
 /// in the error handling case.

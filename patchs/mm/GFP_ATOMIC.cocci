@@ -1,5 +1,7 @@
 /// use GFP_ATOMIC under spin lock
 ///
+/// Except File: drivers/net/ethernet/intel/igb/igb_main.c : special case that can not detect correctly
+///
 /// A spin lock is taken here so we should use GFP_ATOMIC.
 ///
 @@
