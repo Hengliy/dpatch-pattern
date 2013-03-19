@@ -5,11 +5,11 @@
 ///
 @r1@
 identifier fn_init;
-identifier driver;
+identifier driver, usb;
 @@
 int fn_init(void)
 {
-	return comedi_usb_driver_register(&driver);
+	return comedi_usb_driver_register(&driver, &usb);
 }
 
 @r2 depends on r1@
@@ -35,25 +35,25 @@ module_exit(fn_exit);
 
 @init depends on r1 && r2 && r3 && r4@
 identifier r1.fn_init;
-identifier r1.driver;
+identifier r1.driver, r1.usb;
 declarer name module_comedi_usb_driver;
 @@
 
 -int fn_init(void)
 -{
--	return comedi_usb_driver_register(&driver);
+-	return comedi_usb_driver_register(&driver, &usb);
 -}
 
 @exit depends on r1 && r2 && r3 && r4@
 identifier r2.fn_exit;
-identifier r1.driver;
+identifier r1.driver, r1.usb;
 @@
 
 -static void fn_exit(void)
 -{
 -	comedi_usb_driver_unregister(&driver);
 -}
-+ module_comedi_usb_driver(driver);
++ module_comedi_usb_driver(driver, usb);
 
 @depends on r1 && r2 && r3 && r4@
 identifier r1.fn_init;

@@ -1,15 +1,17 @@
 /// use module_comedi_pci_driver to simplify the code
 ///
+/// Fixed: module_comedi_pci_driver\(([^,]+),([^\)]+)\) ... module_comedi_pci_driver(\g<1>, \g<2>)
+///
 /// module_comedi_pci_driver() makes the code simpler by eliminating
 /// boilerplate code.
 ///
 @r1@
 identifier fn_init;
-identifier driver;
+identifier driver, pci;
 @@
 int fn_init(void)
 {
-	return comedi_pci_driver_register(&driver);
+	return comedi_pci_driver_register(&driver, &pci);
 }
 
 @r2 depends on r1@
@@ -35,25 +37,25 @@ module_exit(fn_exit);
 
 @init depends on r1 && r2 && r3 && r4@
 identifier r1.fn_init;
-identifier r1.driver;
+identifier r1.driver, r1.pci;
 declarer name module_comedi_pci_driver;
 @@
 
 -int fn_init(void)
 -{
--	return comedi_pci_driver_register(&driver);
+-	return comedi_pci_driver_register(&driver, &pci);
 -}
 
 @exit depends on r1 && r2 && r3 && r4@
 identifier r2.fn_exit;
-identifier r1.driver;
+identifier r1.driver, r1.pci;
 @@
 
 -static void fn_exit(void)
 -{
 -	comedi_pci_driver_unregister(&driver);
 -}
-+ module_comedi_pci_driver(driver);
++ module_comedi_pci_driver(driver, pci);
 
 @depends on r1 && r2 && r3 && r4@
 identifier r1.fn_init;

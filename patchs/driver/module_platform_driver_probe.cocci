@@ -1,6 +1,6 @@
 /// use module_platform_driver_probe()
 ///
-/// Fixed: module_platform_driver_probe\(([^,]+),([^\)]+)\) ... for_each_clear_bit(\g<1>, \g<2>)
+/// Fixed: module_platform_driver_probe\(([^,]+),([^\)]+)\) ... module_platform_driver_probe(\g<1>, \g<2>)
 ///
 /// module_platform_driver_probe() makes the code simpler by
 /// eliminating boilerplate code.
@@ -49,7 +49,7 @@ declarer name module_platform_driver_probe;
 
 @exit depends on r1 && r2 && r3 && r4@
 identifier r2.fn_exit;
-identifier r1.driver;
+identifier r1.driver, r1.probe;
 @@
 
 -static void fn_exit(void)
