@@ -68,12 +68,19 @@ _exsymlist = [
     '__packed'
 ]
 
+_extypelist = [
+    '__packed'
+]
+
 _exlist = [
     'wpan-class.c|int|ret'
 ]
 
 def _is_except(fname, T, sym):
     if sym in _exsymlist:
+        return True
+
+    if T in _extypelist:
         return True
 
     _exp = re.sub(r"[ \t\\]+", "_", "%s|%s|%s" % (os.path.basename(fname), T, sym))
@@ -108,7 +115,9 @@ else:
     patterns.append(re.sub(r"[ \t]+", "\s*", "extern\s*%s\s*%s\s*\[.*]\s*\S*;" % (T1, sym)))
     patterns.append(re.sub(r"[ \t]+", "\s*", "extern\s*const\s*%s\s*%s\s*\[.*]\s*\S*;" % (T1, sym)))
 
-if fname.find('scripts/') != -1 or fname.find('tools/') != -1:
+if re.search(r"\.c$", fname) == None:
+    cocci.include_match(False)
+elif fname.find('scripts/') != -1 or fname.find('tools/') != -1 or fname.find('arch/') != -1:
     cocci.include_match(False)
 elif fname.find('coccinelle/') != -1:
     cocci.include_match(False)

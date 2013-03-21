@@ -2,7 +2,7 @@
 ///
 /// Except File: net/nfc/llcp/llcp.c : special case that can not detect correctly
 ///
-/// function '{{function}}' was not declared. It should it be static.
+/// {{function}} was not declared. It should be static.
 ///
 @fun@
 identifier sym;
@@ -62,6 +62,7 @@ _extypelist = [
 ]
 
 _exlist = [
+    'qeth_l3_main.c|int|qeth_l3_get_cast_type'
 ]
 
 def _is_except(fname, T, sym):
@@ -88,16 +89,26 @@ def _inclue_dir(dir):
         dname = os.path.dirname(dname)
     return None
 
+def _arch_dir(dir):
+    if dir is None:
+        return None
+    return os.path.join(os.path.dirname(dir), "arch")
+
 fname = p[0].file
 dname = os.path.dirname(fname)
 dinc = _inclue_dir(fname)
+darch = _arch_dir(dinc)
 
 patterns = []
 T1 = re.sub(r"\*", '\*', T).strip()
 patterns.append(re.sub(r"[ \t]+", "\s*", "%s\s*\S*\s*%s\s*(" % (T1, sym)))
 patterns.append(re.sub(r"[ \t]+", "\s*", "^\s*%s\s*(" % (sym)))
 
-if fname.find('scripts/') != -1 or fname.find('tools/') != -1 or fname.find('fs/xfs/') != -1:
+if re.search(r"\.c$", fname) == None:
+    cocci.include_match(False)
+elif fname.find('scripts/') != -1 or fname.find('tools/') != -1:
+    cocci.include_match(False)
+elif fname.find('arch/') != -1 or fname.find('fs/xfs/') != -1:
     cocci.include_match(False)
 elif fname.find('coccinelle/') != -1:
     cocci.include_match(False)
@@ -109,6 +120,9 @@ else:
             cocci.include_match(False)
             break
         elif _is_declared(dname, pattern) == 0:
+            cocci.include_match(False)
+            break
+        elif _is_declared(darch, pattern) == 0:
             cocci.include_match(False)
             break
 
