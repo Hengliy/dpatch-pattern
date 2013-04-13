@@ -25,6 +25,7 @@
 /// Except File: drivers/dma/ioat/dma_v2.c : special case that can not detect correctly
 /// Except File: mm/memcontrol.c : special case that can not detect correctly
 /// Except File: fs/autofs4/root.c : special case that can not detect correctly
+/// Except File: ipc/util.c : special case that can not detect correctly
 ///
 /// Add the missing unlock before return from function {{function}}
 /// in the error handling case.

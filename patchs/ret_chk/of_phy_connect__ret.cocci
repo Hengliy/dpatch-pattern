@@ -3,6 +3,7 @@
 /// In case of error, the function of_phy_connect() returns NULL
 /// pointer not ERR_PTR(). The IS_ERR() test in the return value
 /// check should be replaced with NULL test.
+/// 
 ///
 @@
 expression ret;

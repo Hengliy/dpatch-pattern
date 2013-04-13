@@ -1,6 +1,9 @@
 /// make symbol {{variable}} static
 ///
-/// symbol '{{variable}}' was not declared. It should be static.
+/// Except File: drivers/acpi/acpica/utglobal.c : special case that can not detect correctly
+/// Except File: drivers/char/random.c : special case that can not detect correctly
+///
+/// symbol '{{variable}}' only used within this file. It should be static.
 ///
 @f1@
 identifier fun;
@@ -19,7 +22,7 @@ position p;
 identifier x;
 @@
 fun(...) {
-   <... T x@p = {...}; ...>
+   <... T x@p = ...; ...>
 }
 
 @f3@
@@ -37,7 +40,7 @@ position p != {f1.p, f2.p, f3.p};
 (
 T sym@p;
 |
-T sym@p = {...};
+T sym@p = ...;
 )
 
 @e@
@@ -69,11 +72,19 @@ _exsymlist = [
 ]
 
 _extypelist = [
-    '__packed'
+    '__packed',
+    'struct cgroup_subsys'
+]
+
+_exdlist = [
+    'scripts/',
+    'tools/',
+    'arch/',
+    'coccinelle/',
+    'drivers/gpu/drm/nouveau/core/'
 ]
 
 _exlist = [
-    'wpan-class.c|int|ret'
 ]
 
 def _is_except(fname, T, sym):
@@ -92,6 +103,35 @@ def _is_declared(dir, pattern):
     cmd = "/usr/bin/grep -r \"%s\" %s > /dev/null" % (pattern, dir)
     return subprocess.call(cmd, shell=True)
 
+def _is_weak(fname, T, sym):
+    _wpatterns = []
+    _wpatterns.append(re.sub(r"[ \t]+", "\s*", "%s\s*%s\s*__weak" % (T1, sym)))
+    _wpatterns.append(re.sub(r"[ \t]+", "\s*", "%s\s*%s\s*\[.*\]\s*__weak" % (T1, sym)))
+    if dir is None:
+        return False
+    for pattern in _wpatterns:
+        cmd = "/usr/bin/grep -r \"%s\" %s > /dev/null" % (pattern, fname)
+        if subprocess.call(cmd, shell=True) == 0:
+            return True
+    return False
+
+def _is_in_macro(fname, T, sym):
+    if dir is None:
+        return False
+    _mpatterns = []
+    _mpatterns.append(re.sub(r"[ \t]+", "\s*", "%s\s*%s\s*;\s*\\\\\\\\" % (T1, sym)))
+    for pattern in _mpatterns:
+        cmd = "/usr/bin/grep -r \"%s\" %s > /dev/null" % (pattern, fname)
+        if subprocess.call(cmd, shell=True) == 0:
+            return True
+    return False
+
+def _is_exclude_dir(fname):
+    for _dir in _exdlist:
+        if fname.find(_dir) != -1:
+            return True
+    return False
+
 def _inclue_dir(dir):
     dname = os.path.dirname(dir)
     while len(dname) > 3:
@@ -105,23 +145,25 @@ dname = os.path.dirname(fname)
 dinc = _inclue_dir(fname)
 
 patterns = []
-T1 = re.sub(r"\*", '\*', T).strip()
+T1 = re.sub(r"\*", '\S*\s*\*', T).strip()
 T1 = re.sub(r"\{.*\}", '', T1).strip()
 if T.find("[") == -1:
-    patterns.append(re.sub(r"[ \t]+", "\s*", "extern\s*%s\s*%s\s*\S*;" % (T1, sym)))
-    patterns.append(re.sub(r"[ \t]+", "\s*", "extern\s*const\s*%s\s*%s\s*\S*;" % (T1, sym)))
+    patterns.append(re.sub(r"[ \t]+", "\s*", "extern\s*\S*\s*%s\s*\S*\s*%s\s*\S*;" % (T1, sym)))
+    patterns.append(re.sub(r"[ \t]+", "\s*", "extern\s*const\s*%s\s*\S*\s*%s\s*\S*;" % (T1, sym)))
 else:
     T1 = re.sub(r"\[.*", '', T1).strip()
-    patterns.append(re.sub(r"[ \t]+", "\s*", "extern\s*%s\s*%s\s*\[.*]\s*\S*;" % (T1, sym)))
-    patterns.append(re.sub(r"[ \t]+", "\s*", "extern\s*const\s*%s\s*%s\s*\[.*]\s*\S*;" % (T1, sym)))
+    patterns.append(re.sub(r"[ \t]+", "\s*", "extern\s*\S*\s*%s\s*\S*\s*%s\s*\[.*]\s*\S*;" % (T1, sym)))
+    patterns.append(re.sub(r"[ \t]+", "\s*", "extern\s*const\s*%s\s*\S*\s*%s\s*\[.*]\s*\S*;" % (T1, sym)))
 
-if re.search(r"\.c$", fname) == None:
+if re.search(r"\.c$", fname) == None or len(sym) < 6:
     cocci.include_match(False)
-elif fname.find('scripts/') != -1 or fname.find('tools/') != -1 or fname.find('arch/') != -1:
-    cocci.include_match(False)
-elif fname.find('coccinelle/') != -1:
+elif _is_exclude_dir(fname) is True:
     cocci.include_match(False)
 elif _is_except(fname, T1, sym):
+    cocci.include_match(False)
+elif _is_weak(fname, T1, sym):
+    cocci.include_match(False)
+elif _is_in_macro(fname, T1, sym):
     cocci.include_match(False)
 else:
     for pattern in patterns:
@@ -142,5 +184,5 @@ position sd.p;
 T sym@p;
 |
 +static
-T sym@p = {...};
+T sym@p = ...;
 )

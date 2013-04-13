@@ -1,7 +1,7 @@
 /// use module_hid_driver() to simplify the code
 ///
 /// module_hid_driver() makes the code simpler by eliminating
-/// boilerplate code..
+/// boilerplate code.
 ///
 @r1@
 identifier fn_init;
