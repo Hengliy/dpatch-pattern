@@ -5,7 +5,6 @@
 /// should be replaced with IS_ERR().
 /// 
 ///
-
 @r@
 position p1;
 int ret;

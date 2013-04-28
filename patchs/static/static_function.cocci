@@ -1,4 +1,4 @@
-/// make local function {{function}} static
+/// {{function}} can be static
 ///
 /// Except File: net/nfc/llcp/llcp.c : special case that can not detect correctly
 /// Except File: drivers/media/usb/tlg2300/pd-main.c : special case that can not detect correctly

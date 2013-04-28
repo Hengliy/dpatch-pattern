@@ -3,7 +3,6 @@
 /// Add the missing platform_device_put() before return from
 /// {{function}} in the error handling case.
 ///
-
 @r1 exists@
 expression E;
 expression E2 != {0};

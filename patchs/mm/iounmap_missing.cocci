@@ -3,7 +3,6 @@
 /// Add the missing iounmap() before return from {{function}}
 /// in the error handling case.
 ///
-
 @ok1 exists@
 expression addr;
 expression E, E1;
@@ -68,6 +67,7 @@ type T;
        when != fsl_elbc_chip_remove(...)
        when != isif_remove(...)
        when != pruss_cleanup(...)
+       when != tilcdc_unload(...)
        when forall
    return@p2 E;
   }

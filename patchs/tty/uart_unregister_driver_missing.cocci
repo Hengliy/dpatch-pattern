@@ -3,7 +3,6 @@
 /// Add the missing uart_unregister_driver() before return
 /// from {{function}} in the error handling case.
 ///
-
 @r1 exists@
 expression ret, drv;
 expression E != {0};
