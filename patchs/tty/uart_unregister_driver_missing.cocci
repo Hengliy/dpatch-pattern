@@ -1,5 +1,7 @@
 /// missing uart_unregister_driver() on error in {{function}}
 ///
+/// Except File: drivers/tty/serial/max3100.c : special case that can not detect correctly
+///
 /// Add the missing uart_unregister_driver() before return
 /// from {{function}} in the error handling case.
 ///

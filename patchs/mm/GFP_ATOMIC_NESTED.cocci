@@ -1,6 +1,7 @@
 /// use GFP_ATOMIC under spin lock
 ///
 /// Except File: mm/memory.c : special case that can not detect correctly
+/// Except File: drivers/firmware/efi/vars.c : special case that can not detect correctly
 ///
 /// The function {{function}} is called from several
 /// places, in some of which, such as {{function2}}, a lock may

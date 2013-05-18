@@ -9,6 +9,7 @@
 /// Except File: drivers/net/ethernet/chelsio/cxgb3/cxgb3_offload.c : special case that can not detect correctly
 /// Except File: drivers/net/ethernet/chelsio/cxgb3/cxgb3_main.c : special case that can not detect correctly
 /// Except File: net/batman-adv/network-coding.c : special case that can not detect correctly
+/// Except File: drivers/net/wireless/rtlwifi/rtl8188ee/fw.c : special case that can not detect correctly
 ///
 /// Remove pointless conditional before kfree_skb().
 ///

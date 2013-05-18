@@ -26,6 +26,7 @@
 /// Except File: mm/memcontrol.c : special case that can not detect correctly
 /// Except File: fs/autofs4/root.c : special case that can not detect correctly
 /// Except File: ipc/util.c : special case that can not detect correctly
+/// Except File: include/linux/kref.h : special case that can not detect correctly
 ///
 /// Add the missing unlock before return from function {{function}}
 /// in the error handling case.

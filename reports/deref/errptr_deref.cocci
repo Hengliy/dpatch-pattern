@@ -1,6 +1,13 @@
 /// fix error-valued pointer dereference in {{function}}
 ///
 /// Except File: fs/jffs2/write.c : special case that can not detect correctly
+/// Except File: drivers/staging/lustre/lustre/obdecho/echo_client.c : special case that can not detect correctly
+/// Except File: drivers/staging/lustre/lustre/obdclass/lu_object.c : special case that can not detect correctly
+/// Except File: drivers/staging/lustre/lustre/obdclass/genops.c : special case that can not detect correctly
+/// Except File: drivers/staging/lustre/lustre/obdclass/dt_object.c : special case that can not detect correctly
+/// Except File: drivers/staging/lustre/lustre/obdclass/cl_page.c : special case that can not detect correctly
+/// Except File: drivers/staging/lustre/lustre/llite/namei.c : special case that can not detect correctly
+/// Except File: drivers/staging/lustre/lustre/llite/llite_nfs.c : special case that can not detect correctly
 ///
 /// Fix error-valued pointer dereference in {{function}}.
 ///

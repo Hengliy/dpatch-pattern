@@ -1,9 +1,10 @@
 /// add missing platform_device_del() on error in {{function}}
 ///
+/// Except File: drivers/char/ipmi/ipmi_si_intf.c : special case that can not detect correctly
+///
 /// Add the missing platform_device_del() before return from
 /// {{function}} in the error handling case.
 ///
-
 @r1 exists@
 expression dev;
 expression ret, E2 != {0};
@@ -17,6 +18,7 @@ position p;
  if (...) {
    ... when != platform_device_del(dev);
        when != platform_device_unregister(dev);
+       when forall
    return E2@p;
  }
 

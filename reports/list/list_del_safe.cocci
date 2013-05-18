@@ -1,10 +1,11 @@
-/// fix to use list_for_each_safe() when delete list items
+/// fix to use list_for_each_safe() when delete items
 ///
 /// Except File: drivers/usb/gadget/dummy_hcd.c : special case that can not detector as ok
+/// Except File: drivers/staging/lustre/lustre/ldlm/ldlm_lib.c : special case that can not detect correctly
 ///
 /// Since we will remove items off the list using list_del() we need
 /// to use a safe version of the list_for_each() macro aptly named
-/// list_for_each_safe(). 
+/// list_for_each_safe().
 ///
 @@
 iterator name list_for_each;
@@ -15,19 +16,22 @@ identifier l;
 *  list_for_each(pos, head)
 {
 ...
-*  \(list_del\|list_del_init\)(pos);
+*  \(list_del\|list_del_init\|list_move\|list_move_tail\)(pos, ...);
 ... when != \(goto l; \| break; \| return E; \| return;\)
 }
 
 @@
 expression E;
-expression pos, head, head2;
+expression pos, head, ep;
+identifier list;
 identifier l;
 @@
 *  list_for_each(pos, head)
 {
 ...
-*  \(list_move\|list_move_tail\)(pos, head2);
+* ep = list_entry(pos, ..., list);
+...
+*  \(list_del\|list_del_init\|list_move\|list_move_tail\)(&ep->list, ...);
 ... when != \(goto l; \| break; \| return E; \| return;\)
 }
 

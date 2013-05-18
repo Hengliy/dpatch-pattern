@@ -1,5 +1,14 @@
 /// add missing iounmap() on error in {{function}}
 ///
+/// Except File: drivers/char/applicom.c : special case that can not detect correctly
+/// Except File: drivers/scsi/qla2xxx/qla_os.c : special case that can not detect correctly
+/// Except File: drivers/tty/cyclades.c : special case that can not detect correctly
+/// Except File: drivers/ssb/scan.c : special case that can not detect correctly
+/// Except File: drivers/scsi/qla2xxx/qla_mr.c : special case that can not detect correctly
+/// Except File: drivers/iommu/exynos-iommu.c : special case that can not detect correctly
+/// Except File: drivers/bus/mvebu-mbus.c : special case that can not detect correctly
+/// Except File: drivers/net/ethernet/smsc/smsc9420.c : special case that can not detect correctly
+///
 /// Add the missing iounmap() before return from {{function}}
 /// in the error handling case.
 ///
@@ -68,6 +77,13 @@ type T;
        when != isif_remove(...)
        when != pruss_cleanup(...)
        when != tilcdc_unload(...)
+       when != pcc_clear_mapping(...)
+       when != cx18_iounmap(...)
+       when != rt2x00soc_free_reg(...)
+       when != ep93xx_eth_remove(...)
+       when != ace_init_cleanup(...)
+       when != ems_pcmcia_del_card(...)
+       when != fsl_of_msi_remove(...)
        when forall
    return@p2 E;
   }

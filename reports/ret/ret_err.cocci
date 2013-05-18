@@ -99,6 +99,96 @@
 /// Except File: drivers/macintosh/smu.c : special case that can not detect correctly
 /// Except File: drivers/gpu/drm/drm_edid.c : special case that can not detect correctly
 /// Except File: drivers/media/platform/exynos4-is/fimc-lite.c : special case that can not detect correctly
+/// Except File: arch/x86/kernel/cpu/perf_event_intel_uncore.c : special case that can not detect correctly
+/// Except File: security/tomoyo/common.c : special case that can not detect correctly
+/// Except File: net/core/datagram.c : special case that can not detect correctly
+/// Except File: drivers/scsi/pmcraid.c : special case that can not detect correctly
+/// Except File: arch/x86/kvm/mmu.c : special case that can not detect correctly
+/// Except File: drivers/char/ipmi/ipmi_si_intf.c : special case that can not detect correctly
+/// Except File: drivers/cpufreq/s3c2416-cpufreq.c : special case that can not detect correctly
+/// Except File: fs/ceph/dir.c : special case that can not detect correctly
+/// Except File: drivers/xen/grant-table.c : special case that can not detect correctly
+/// Except File: drivers/staging/tidspbridge/core/chnl_sm.c : special case that can not detect correctly
+/// Except File: drivers/clk/tegra/clk-pll.c : special case that can not detect correctly
+/// Except File: drivers/mfd/88pm860x-core.c : special case that can not detect correctly
+/// Except File: sound/soc/soc-core.c : special case that can not detect correctly
+/// Except File: fs/jbd/transaction.c : special case that can not detect correctly
+/// Except File: net/sched/sch_api.c : special case that can not detect correctly
+/// Except File: net/sched/act_api.c : special case that can not detect correctly
+/// Except File: fs/nfs/read.c : special case that can not detect correctly
+/// Except File: net/netfilter/nf_conntrack_proto.c : special case that can not detect correctly
+/// Except File: net/decnet/dn_dev.c : special case that can not detect correctly
+/// Except File: kernel/power/suspend.c : special case that can not detect correctly
+/// Except File: fs/jbd2/transaction.c : special case that can not detect correctly
+/// Except File: fs/jbd/journal.c : special case that can not detect correctly
+/// Except File: fs/gfs2/super.c : special case that can not detect correctly
+/// Except File: fs/xfs/xfs_dir2_leaf.c : special case that can not detect correctly
+/// Except File: drivers/usb/renesas_usbhs/fifo.c : special case that can not detect correctly
+/// Except File: drivers/usb/musb/musb_host.c : special case that can not detect correctly
+/// Except File: drivers/usb/chipidea/udc.c : special case that can not detect correctly
+/// Except File: drivers/tty/vt/consolemap.c : special case that can not detect correctly
+/// Except File: drivers/ssb/driver_pcicore.c : special case that can not detect correctly
+/// Except File: drivers/s390/char/sclp_cmd.c : special case that can not detect correctly
+/// Except File: drivers/staging/usbip/vhci_hcd.c : special case that can not detect correctly
+/// Except File: drivers/staging/ti-soc-thermal/ti-bandgap.c : special case that can not detect correctly
+/// Except File: drivers/staging/android/binder.c : special case that can not detect correctly
+/// Except File: arch/powerpc/platforms/pseries/iommu.c : special case that can not detect correctly
+/// Except File: drivers/base/regmap/regcache-lzo.c : special case that can not detect correctly
+/// Except File: drivers/net/usb/smsc95xx.c : special case that can not detect correctly
+/// Except File: drivers/net/ethernet/neterion/s2io.c : special case that can not detect correctly
+/// Except File: drivers/hid/usbhid/hid-core.c : special case that can not detect correctly
+/// Except File: drivers/power/sbs-battery.c : special case that can not detect correctly
+/// Except File: drivers/regulator/max8998.c : special case that can not detect correctly
+/// Except File: drivers/net/ethernet/sfc/efx.c : special case that can not detect correctly
+/// Except File: drivers/scsi/bnx2fc/bnx2fc_io.c : special case that can not detect correctly
+/// Except File: drivers/net/wireless/iwlwifi/iwl-test.c : special case that can not detect correctly
+/// Except File: drivers/net/wireless/b43legacy/main.c : special case that can not detect correctly
+/// Except File: drivers/net/wireless/b43/main.c : special case that can not detect correctly
+/// Except File: drivers/net/wireless/ath/ath6kl/usb.c : special case that can not detect correctly
+/// Except File: drivers/net/wireless/ath/ath6kl/htc_pipe.c : special case that can not detect correctly
+/// Except File: drivers/net/wireless/ti/wlcore/tx.c : special case that can not detect correctly
+/// Except File: drivers/net/wireless/ti/wlcore/main.c : special case that can not detect correctly
+/// Except File: drivers/net/wireless/rtl818x/rtl8187/dev.c : special case that can not detect correctly
+/// Except File: arch/metag/kernel/perf/perf_event.c : special case that can not detect correctly
+/// Except File: drivers/gpu/drm/radeon/radeon_gem.c : special case that can not detect correctly
+/// Except File: drivers/gpu/drm/i915/i915_gem_execbuffer.c : special case that can not detect correctly
+/// Except File: drivers/media/dvb-frontends/drxk_hard.c : special case that can not detect correctly
+/// Except File: drivers/media/i2c/soc_camera/mt9v022.c : special case that can not detect correctly
+/// Except File: drivers/media/i2c/s5c73m3/s5c73m3-core.c : special case that can not detect correctly
+/// Except File: drivers/media/pci/ivtv/ivtv-driver.c : special case that can not detect correctly
+/// Except File: drivers/media/platform/davinci/vpbe.c : special case that can not detect correctly
+/// Except File: arch/um/drivers/ubd_kern.c : special case that can not detect correctly
+/// Except File: drivers/ide/ide-tape.c : special case that can not detect correctly
+/// Except File: drivers/net/wireless/ath/ath6kl/wmi.c : special case that can not detect correctly
+/// Except File: drivers/net/wireless/ath/ath6kl/hif.c : special case that can not detect correctly
+/// Except File: drivers/net/wireless/ath/ath5k/phy.c : special case that can not detect correctly
+/// Except File: drivers/media/platform/vino.c : special case that can not detect correctly
+/// Except File: drivers/media/radio/radio-wl1273.c : special case that can not detect correctly
+/// Except File: drivers/media/tuners/tuner-xc2028.c : special case that can not detect correctly
+/// Except File: drivers/media/usb/dvb-usb/m920x.c : special case that can not detect correctly
+/// Except File: drivers/media/usb/dvb-usb-v2/af9015.c : special case that can not detect correctly
+/// Except File: drivers/media/usb/gspca/gspca.c : special case that can not detect correctly
+/// Except File: drivers/media/usb/s2255/s2255drv.c : special case that can not detect correctly
+/// Except File: drivers/mfd/ab3100-core.c : special case that can not detect correctly
+/// Except File: drivers/rtc/interface.c : special case that can not detect correctly
+/// Except File: fs/autofs4/dev-ioctl.c : special case that can not detect correctly
+/// Except File: fs/ecryptfs/read_write.c : special case that can not detect correctly
+/// Except File: fs/btrfs/relocation.c : special case that can not detect correctly
+/// Except File: fs/btrfs/ctree.c : special case that can not detect correctly
+/// Except File: fs/btrfs/xattr.c : special case that can not detect correctly
+/// Except File: fs/btrfs/send.c : special case that can not detect correctly
+/// Except File: fs/btrfs/free-space-cache.c : special case that can not detect correctly
+/// Except File: fs/btrfs/delayed-inode.c : special case that can not detect correctly
+/// Except File: drivers/tty/tty_audit.c : special case that can not detect correctly
+/// Except File: security/apparmor/domain.c : special case that can not detect correctly
+/// Except File: drivers/regulator/wm831x-dcdc.c : special case that can not detect correctly
+/// Except File: drivers/mtd/chips/cfi_cmdset_0002.c : special case that can not detect correctly
+/// Except File: fs/gfs2/quota.c : special case that can not detect correctly
+/// Except File: drivers/scsi/qla2xxx/qla_nx.c : special case that can not detect correctly
+/// Except File: arch/powerpc/mm/fault.c : special case that can not detect correctly
+/// Except File: kernel/futex.c : special case that can not detect correctly
+/// Except File: drivers/usb/misc/adutux.c : special case that can not detect correctly
+/// Except File: sound/soc/soc-pcm.c : special case that can not detect correctly
 ///
 /// Fix to return a negative error code from the error handling
 /// case instead of 0, as done elsewhere in this function.
@@ -170,7 +260,8 @@ _exlist = [
     'filemap.c|retval|!_count',
     'ftrace.c|rec|!_stat_->_pages_->_next',
     'qlcnic_main.c|err|qlcnic_83xx_check_(_adapter_)',
-    'btmrvl_sdio.c|ret|(_status_&_bits_)_==_bits'
+    'btmrvl_sdio.c|ret|(_status_&_bits_)_==_bits',
+    'core.c|pmu|!_ret'
 ]
 
 def _is_except(fname, ret, e):

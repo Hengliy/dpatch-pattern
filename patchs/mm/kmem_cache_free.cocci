@@ -1,5 +1,13 @@
 /// use kmem_cache_free() instead of kfree()
 ///
+/// Except File: mm/slab.c : special case that can not detect correctly
+/// Except File: drivers/gpu/drm/exynos/exynos_drm_gem.c : special case that can not detect correctly
+/// Except File: arch/x86/platform/efi/efi_64.c : special case that can not detect correctly
+/// Except File: arch/s390/kvm/kvm-s390.c : special case that can not detect correctly
+/// Except File: arch/arm/kvm/mmu.c : special case that can not detect correctly
+/// Except File: arch/mips/kvm/kvm_mips.c : special case that can not detect correctly
+/// Except File: fs/btrfs/qgroup.c : special case that can not detect correctly
+///
 /// memory allocated by kmem_cache_alloc() should be freed using
 /// kmem_cache_free(), not kfree().
 ///

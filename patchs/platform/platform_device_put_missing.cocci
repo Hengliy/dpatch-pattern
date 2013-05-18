@@ -1,5 +1,8 @@
 /// add missing platform_device_put() on error in {{function}}
 ///
+/// Except File: drivers/usb/dwc3/dwc3-pci.c : special case that can not detect correctly
+/// Except File: drivers/usb/dwc3/dwc3-exynos.c : special case that can not detect correctly
+///
 /// Add the missing platform_device_put() before return from
 /// {{function}} in the error handling case.
 ///

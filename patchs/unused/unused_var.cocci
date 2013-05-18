@@ -9,6 +9,8 @@
 /// Except File: drivers/usb/gadget/f_mass_storage.c : special case that can not detect correctly
 /// Except File: drivers/net/ethernet/dec/ewrk3.c : special case that can not detect correctly
 /// Except File: drivers/net/irda/smsc-ircc2.c : special case that can not detect correctly
+/// Except File: fs/xfs/xfs_dir2_node.c : special case that can not detect correctly
+/// Except File: drivers/scsi/qla4xxx/ql4_os.c : special case that can not detect correctly
 ///
 /// The variable {{variable}} is initialized but never used
 /// otherwise, so remove the unused variable.
