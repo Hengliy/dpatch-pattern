@@ -8,6 +8,8 @@
 /// Except File: drivers/iommu/exynos-iommu.c : special case that can not detect correctly
 /// Except File: drivers/bus/mvebu-mbus.c : special case that can not detect correctly
 /// Except File: drivers/net/ethernet/smsc/smsc9420.c : special case that can not detect correctly
+/// Except File: drivers/net/ethernet/nvidia/forcedeth.c : special case that can not detect correctly
+/// Except File: drivers/memstick/host/jmb38x_ms.c : special case that can not detect correctly
 ///
 /// Add the missing iounmap() before return from {{function}}
 /// in the error handling case.
@@ -84,6 +86,8 @@ type T;
        when != ace_init_cleanup(...)
        when != ems_pcmcia_del_card(...)
        when != fsl_of_msi_remove(...)
+       when != xemaclite_remove_ndev(...)
+       when != sis_chip_free(...)
        when forall
    return@p2 E;
   }

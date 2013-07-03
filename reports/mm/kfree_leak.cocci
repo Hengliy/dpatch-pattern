@@ -18,6 +18,7 @@
 /// Except File: drivers/net/wan/cosa.c : special case that can not detect correctly
 /// Except File: drivers/target/iscsi/iscsi_target_login.c : special case that can not detect correctly
 /// Except File: arch/x86/kernel/microcode_intel_early.c : special case that can not detect correctly
+/// Except File: drivers/vme/vme.c : special case that can not detect correctly
 ///
 /// memory is malloced in {{function}} and should be freed before
 /// leaving from the error handling cases, otherwise it will cause

@@ -3,7 +3,6 @@
 /// In case of error, the function clk_register() returns ERR_PTR()
 /// and never returns NULL. The NULL test in the return value check
 /// should be replaced with IS_ERR().
-/// 
 ///
 @r@
 position p1;

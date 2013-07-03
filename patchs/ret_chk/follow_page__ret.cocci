@@ -5,7 +5,6 @@
 /// In case of error, the function follow_page() returns ERR_PTR()
 /// or NULL pointer. The NULL test in the error handling should be
 /// replaced with IS_ERR_OR_NULL().
-/// 
 ///
 @@
 expression ret, E;
