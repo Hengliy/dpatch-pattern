@@ -1,6 +1,7 @@
 /// add missing free_netdev() on error in {{function}}
 ///
 /// Except File: drivers/net/ethernet/realtek/8139too.c : special case that can not detect correctly
+/// Except File: drivers/staging/csr/netdev.c : special case that can not detect correctly
 ///
 /// Add the missing free_netdev() before return from function
 /// {{function}} in the error handling case.

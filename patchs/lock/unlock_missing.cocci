@@ -28,6 +28,11 @@
 /// Except File: ipc/util.c : special case that can not detect correctly
 /// Except File: include/linux/kref.h : special case that can not detect correctly
 /// Except File: drivers/staging/lustre/lnet/selftest/rpc.c : special case that can not detect correctly
+/// Except File: drivers/staging/lustre/lnet/selftest/framework.c : special case that can not detect correctly
+/// Except File: net/ipv4/udp.c : special case that can not detect correctly
+/// Except File: net/llc/llc_proc.c : special case that can not detect correctly
+/// Except File: include/linux/lockref.h : special case that can not detect correctly
+/// Except File: lib/lockref.c : special case that can not detect correctly
 ///
 /// Add the missing unlock before return from function {{function}}
 /// in the error handling case.

@@ -10,6 +10,9 @@
 /// Except File: drivers/net/ethernet/smsc/smsc9420.c : special case that can not detect correctly
 /// Except File: drivers/net/ethernet/nvidia/forcedeth.c : special case that can not detect correctly
 /// Except File: drivers/memstick/host/jmb38x_ms.c : special case that can not detect correctly
+/// Except File: drivers/tty/serial/ar933x_uart.c : special case that can not detect correctly
+/// Except File: drivers/mfd/sm501.c : special case that can not detect correctly
+/// Except File: drivers/scsi/arcmsr/arcmsr_hba.c : special case that can not detect correctly
 ///
 /// Add the missing iounmap() before return from {{function}}
 /// in the error handling case.
@@ -88,6 +91,11 @@ type T;
        when != fsl_of_msi_remove(...)
        when != xemaclite_remove_ndev(...)
        when != sis_chip_free(...)
+       when != snd_harmony_free(...)
+       when != ace_init_cleanup(...)
+       when != omap24xxcam_remove(...)
+       when != ioc4_serial_remove_one(...)
+       when != omap_dmm_remove(...)
        when forall
    return@p2 E;
   }

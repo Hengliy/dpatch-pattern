@@ -113,7 +113,7 @@ def _is_weak(fname, T, sym):
     _wpatterns.append(re.sub(r"[ \t]+", "\s*", "%s\s*__weak__\s*%s\s*(" % (T1, sym)))
     _wpatterns.append(re.sub(r"[ \t]+", "\s*", "%s\s*__weak\s*%s\s*(" % (T1, sym)))
 
-    if dir is None:
+    if fname is None:
         return False
     for pattern in _wpatterns:
         cmd = "/usr/bin/grep -r \"%s\" %s > /dev/null" % (pattern, fname)

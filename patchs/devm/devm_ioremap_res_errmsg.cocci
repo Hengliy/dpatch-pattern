@@ -10,7 +10,7 @@ expression E, dev;
 E = devm_ioremap_resource(dev, ...);
 if (IS_ERR(E))
 - {
--    \(dev_dbg\|dev_err\|pr_debug\|pr_err\|DRM_ERROR\)(...);
+-    \(dev_dbg\|dev_err\|dev_warn\|pr_debug\|pr_err\|DRM_ERROR\)(...);
     return PTR_ERR(E);
 - }
 
@@ -22,6 +22,6 @@ E = devm_ioremap_resource(dev, ...);
 if (<+...E...+>) {
   ... when != goto l;
       when forall
--    \(dev_dbg\|dev_err\|pr_debug\|pr_err\|DRM_ERROR\)(...);
+-    \(dev_dbg\|dev_err\|dev_warn\|pr_debug\|pr_err\|DRM_ERROR\)(...);
   ...
 }

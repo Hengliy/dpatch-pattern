@@ -1,5 +1,7 @@
 /// missing platform_device_unregister() on error in {{function}}
 ///
+/// Except File: drivers/edac/tile_edac.c : special case that can not detect correctly
+///
 /// Add the missing platform_device_unregister() before return
 /// from {{function}} in the error handling case.
 ///

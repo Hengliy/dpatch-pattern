@@ -19,6 +19,12 @@
 /// Except File: drivers/target/iscsi/iscsi_target_login.c : special case that can not detect correctly
 /// Except File: arch/x86/kernel/microcode_intel_early.c : special case that can not detect correctly
 /// Except File: drivers/vme/vme.c : special case that can not detect correctly
+/// Except File: drivers/infiniband/hw/mlx5/qp.c : special case that can not detect correctly
+/// Except File: drivers/infiniband/hw/mlx5/mr.c : special case that can not detect correctly
+/// Except File: drivers/acpi/pci_irq.c : special case that can not detect correctly
+/// Except File: drivers/mtd/tests/stresstest.c : special case that can not detect correctly
+/// Except File: drivers/mtd/tests/speedtest.c : special case that can not detect correctly
+/// Except File: drivers/net/ethernet/sfc/ef10.c : special case that can not detect correctly
 ///
 /// memory is malloced in {{function}} and should be freed before
 /// leaving from the error handling cases, otherwise it will cause

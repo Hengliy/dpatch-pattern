@@ -7,6 +7,9 @@
 /// Except File: drivers/net/ethernet/mellanox/mlx4/eq.c : special case that can not detect correctly
 /// Except File: drivers/scsi/ipr.c : special case that can not detect correctly
 /// Except File: drivers/infiniband/hw/ocrdma/ocrdma_hw.c : special case that can not detect correctly
+/// Except File: drivers/dma/intel_mid_dma.c : special case that can not detect correctly
+/// Except File: drivers/net/ethernet/cisco/enic/enic_main.c : special case that can not detect correctly
+/// Except File: arch/um/kernel/irq.c : special case that can not detect correctly
 ///
 /// free_irq() expects the same device identity that was passed to
 /// corresponding request_irq(), otherwise the IRQ is not freed.

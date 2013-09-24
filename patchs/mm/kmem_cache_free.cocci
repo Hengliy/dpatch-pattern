@@ -8,6 +8,9 @@
 /// Except File: arch/mips/kvm/kvm_mips.c : special case that can not detect correctly
 /// Except File: fs/btrfs/qgroup.c : special case that can not detect correctly
 /// Except File: fs/lockd/svclock.c : special case that can not detect correctly
+/// Except File: drivers/iommu/arm-smmu.c : special case that can not detect correctly
+/// Except File: arch/tile/kvm/kvm-tile.c : special case that can not detect correctly
+/// Except File: fs/aio.c : special case that can not detect correctly
 ///
 /// memory allocated by kmem_cache_alloc() should be freed using
 /// kmem_cache_free(), not kfree().

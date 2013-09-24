@@ -8,6 +8,12 @@
 /// Except File: drivers/staging/lustre/lustre/obdclass/cl_page.c : special case that can not detect correctly
 /// Except File: drivers/staging/lustre/lustre/llite/namei.c : special case that can not detect correctly
 /// Except File: drivers/staging/lustre/lustre/llite/llite_nfs.c : special case that can not detect correctly
+/// Except File: drivers/usb/gadget/f_subset.c : special case that can not detect correctly
+/// Except File: drivers/usb/gadget/f_rndis.c : special case that can not detect correctly
+/// Except File: drivers/usb/gadget/f_phonet.c : special case that can not detect correctly
+/// Except File: drivers/usb/gadget/f_ncm.c : special case that can not detect correctly
+/// Except File: drivers/usb/gadget/f_eem.c : special case that can not detect correctly
+/// Except File: drivers/usb/gadget/f_ecm.c : special case that can not detect correctly
 ///
 /// Fix error-valued pointer dereference in {{function}}.
 ///

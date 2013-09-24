@@ -3,7 +3,6 @@
 /// It's not necessary to free memory allocated with devm_kzalloc
 /// and using kfree leads to a double free.
 ///
-
 @@
 expression x;
 @@
@@ -44,7 +43,7 @@ type T;
 T fn_remove(...)
 {
 ...
-- kfree(x);
+-kfree(x);
 ...
 }
 

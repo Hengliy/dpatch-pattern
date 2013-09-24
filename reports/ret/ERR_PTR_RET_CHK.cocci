@@ -24,6 +24,17 @@
 /// Except File: drivers/block/drbd/drbd_nl.c : special case that can not detect correctly
 /// Except File: drivers/mtd/devices/mtd_dataflash.c : special case that can not detect correctly
 /// Except File: fs/btrfs/free-space-cache.c : special case that can not detect correctly
+/// Except File: drivers/infiniband/core/uverbs_cmd.c : special case that can not detect correctly
+/// Except File: fs/nfs/write.c : special case that can not detect correctly
+/// Except File: fs/btrfs/tree-log.c : special case that can not detect correctly
+/// Except File: fs/btrfs/scrub.c : special case that can not detect correctly
+/// Except File: net/sunrpc/rpc_pipe.c : special case that can not detect correctly
+/// Except File: kernel/events/core.c : special case that can not detect correctly
+/// Except File: drivers/cpufreq/cpufreq-cpu0.c : special case that can not detect correctly
+/// Except File: arch/powerpc/platforms/pseries/dlpar.c : special case that can not detect correctly
+/// Except File: drivers/block/nvme-core.c : special case that can not detect correctly
+/// Except File: fs/fuse/dir.c : special case that can not detect correctly
+/// Except File: kernel/events/uprobes.c : special case that can not detect correctly
 ///
 /// In case of error, the function XXXX() returns ERR_PTR()
 /// and never returns NULL. The NULL test in the return value check
@@ -32,7 +43,8 @@
 @@
 expression ret, E;
 @@
-ret = \(create_new_namespaces\|
+ret = \(rootfs_mount\|
+create_new_namespaces\|
 audit_data_to_entry\|
 audit_dupe_rule\|
 audit_to_entry_common\|
@@ -52,10 +64,10 @@ find_lively_task_by_vpid\|
 perf_cgroup_css_alloc\|
 perf_event_alloc\|
 perf_event_create_kernel_counter\|
-perf_init_event\|
 kthread_create_on_cpu\|
 idle_thread_get\|
 __tracing_open\|
+f_start\|
 alloc_trace_probe\|
 alloc_trace_uprobe\|
 freezer_css_alloc\|
@@ -87,7 +99,6 @@ do_create\|
 do_open\|
 mqueue_get_inode\|
 mqueue_mount\|
-ipc_lock_check\|
 ipc_obtain_object\|
 ipc_obtain_object_check\|
 ipcctl_pre_down_nolock\|
@@ -102,18 +113,21 @@ load_msg\|
 kvm_create_vm\|
 get_empty_filp\|
 alloc_file\|
-timers_start\|
 proc_map_files_lookup\|
+proc_pid_lookup\|
 proc_pident_lookup\|
+proc_task_lookup\|
+timers_start\|
 proc_mount\|
 proc_tgid_net_lookup\|
 find_subdir\|
 get_subdir\|
 sysctl_head_grab\|
 xlate_dir\|
+proc_ns_dir_lookup\|
 proc_ns_fget\|
 proc_ns_get_dentry\|
-proc_ns_dir_lookup\|
+proc_lookupfd_common\|
 efivarfs_alloc_dentry\|
 adfs_lookup\|
 open_exec\|
@@ -125,6 +139,7 @@ bio_copy_kern\|
 bio_map_user_iov\|
 sysfs_lookup\|
 sysfs_mount\|
+anon_inode_getfile_private\|
 anon_inode_mkinode\|
 qnx6_iget\|
 get_cramfs_inode\|
@@ -141,7 +156,6 @@ persistent_ram_new\|
 gfs2_mount\|
 gfs2_mount_meta\|
 gfs2_inode_lookup\|
-gfs2_lookup\|
 gfs2_lookup_by_inum\|
 gfs2_lookup_simple\|
 gfs2_dir_get_hash_table\|
@@ -192,8 +206,9 @@ clone_fs_devices\|
 alloc_log_tree\|
 btrfs_create_tree\|
 btrfs_read_fs_root_no_name\|
-btrfs_read_fs_root_no_radix\|
+btrfs_read_tree_root\|
 btree_get_extent\|
+btrfs_read_fs_root\|
 btrfs_reada_add\|
 scrub_setup_ctx\|
 btrfs_get_dentry\|
@@ -228,8 +243,10 @@ __ext4_new_inode\|
 ext4_orphan_get\|
 ext4_iget\|
 ext4_acl_to_disk\|
+__ext4_journal_start_reserved\|
 __ext4_journal_start_sb\|
 ext4_nfs_get_inode\|
+__read_extent_tree_block\|
 ext4_ext_find_extent\|
 __ext4_read_dirblock\|
 ext4_append\|
@@ -374,6 +391,7 @@ ext2_nfs_get_inode\|
 ext2_get_parent\|
 ext2_lookup\|
 isofs_iget\|
+isofs_mount\|
 isofs_lookup\|
 isofs_export_iget\|
 isofs_export_get_parent\|
@@ -430,7 +448,8 @@ nfs4_proc_lookup_mountpoint\|
 nfs4_state_find_open_context\|
 nfs4_try_open_cached\|
 nfs_get_root\|
-nfs_try_mount\|
+nfs_idmap_request_key\|
+nfs_try_mount_request\|
 nfs_fs_mount\|
 nfs_fs_mount_common\|
 nfs4_find_or_create_slot\|
@@ -474,6 +493,7 @@ xfs_acl_from_disk\|
 xfs_fs_get_parent\|
 xfs_nfs_get_inode\|
 xfs_handle_to_dentry\|
+fanotify_add_new_mark\|
 inotify_new_group\|
 fsnotify_alloc_group\|
 fsnotify_add_notify_event\|
@@ -613,6 +633,7 @@ omap_get_control_dev\|
 tun_get_socket\|
 securityfs_create_dir\|
 securityfs_create_file\|
+of_extcon_get_extcon_dev\|
 hwspin_lock_request\|
 hwspin_lock_request_specific\|
 devfreq_recommended_opp\|
@@ -794,6 +815,7 @@ xt_hook_link\|
 xt_register_table\|
 instance_create\|
 verdict_instance_lookup\|
+ctnetlink_alloc_expect\|
 ctnetlink_create_conntrack\|
 nf_sockopt_find\|
 __nf_conntrack_alloc\|
@@ -850,7 +872,7 @@ ipt_register_table\|
 arpt_register_table\|
 icmp_route_lookup\|
 rtm_to_ifaddr\|
-handle_offloads\|
+gre_handle_offloads\|
 __ip_route_output_key\|
 ip_route_output_flow\|
 __ip_tunnel_create\|
@@ -862,6 +884,7 @@ ipmr_mfc_seq_start\|
 ipmr_rt_fib_lookup\|
 ipmr_vif_seq_start\|
 netdev_create\|
+gre_create\|
 ovs_vport_add\|
 ovs_vport_alloc\|
 __flow_tbl_rehash\|
@@ -871,7 +894,9 @@ lookup_vport\|
 ovs_dp_cmd_build_info\|
 ovs_flow_cmd_build_info\|
 ovs_vport_cmd_build_info\|
+reserve_sfa_size\|
 internal_dev_create\|
+vxlan_tnl_create\|
 ip6addrlbl_alloc\|
 ip6_dst_lookup_flow\|
 ip6_sk_dst_lookup_flow\|
@@ -885,13 +910,14 @@ icmp6_dst_alloc\|
 addrconf_add_dev\|
 ipv6_add_addr\|
 ipv6_gso_segment\|
+tipc_alloc_conn\|
 ieee80211_new_chanctx\|
+ieee80211_gtk_rekey_add\|
 ieee80211_key_alloc\|
 ieee80211_add_iface\|
 mesh_path_add\|
 init_desc\|
 tomoyo_get_local_path\|
-aa_unpack\|
 unpack_profile\|
 aa_dfa_unpack\|
 aa_simple_write_to_buffer\|
@@ -937,8 +963,8 @@ notifier_err_inject_init\|
 fsm_init\|
 devm_ioremap_resource\|
 ptrace_hbp_create\|
+follow_huge_addr\|
 zpci_alloc_bus_resource\|
-zpci_alloc_device\|
 debug_get_user_string\|
 diag2fc_store\|
 hypfs_create_str\|
@@ -954,14 +980,14 @@ hypfs_create_phys_files\|
 idal_buffer_alloc\|
 kvm_arch_vcpu_create\|
 gmap_table_walk\|
-follow_huge_addr\|
 clk_register_gate_fn\|
 s3c_adc_register\|
 ecard_alloc_card\|
-clk_get_parent\|
+edma_setup_info_from_dt\|
 vreg_get\|
 imx_clk_pllv1\|
 clk_register_gate2\|
+imx_clk_fixup_divider\|
 imx_add_mx3_sdc_fb\|
 imx_alloc_mx3_camera\|
 imx_clk_busy_divider\|
@@ -970,6 +996,7 @@ imx_clk_pfd\|
 imx_obtain_fixed_clock_from_dt\|
 imx_clk_pllv2\|
 imx_clk_pllv3\|
+imx_clk_fixup_mux\|
 omap_voltage_get_voltdata\|
 _clkdm_deps_lookup\|
 create_dss_pdev\|
@@ -981,8 +1008,10 @@ omap_device_get_by_hwmod_name\|
 sparc_map_cache_event\|
 ldc_alloc\|
 ldc_alloc_exp_dring\|
+kvm_find_vq\|
 hardwall_create\|
 __clk_get\|
+clk_get_parent\|
 mpic_msgr_get\|
 gtm_get_specific_timer16\|
 gtm_get_timer16\|
@@ -1006,7 +1035,7 @@ vmx_create_vcpu\|
 svm_create_vcpu\|
 pcpu_build_alloc_info\|
 __mpol_dup\|
-check_range\|
+queue_pages_range\|
 balloon_devinfo_alloc\|
 memdup_user\|
 strndup_user\|
@@ -1016,10 +1045,8 @@ do_read_cache_page\|
 wait_on_page_read\|
 frontswap_register_ops\|
 follow_trans_huge_pmd\|
-mem_cgroup_css_alloc\|
 vma_to_resize\|
 alloc_swap_info\|
-select_bad_process\|
 alloc_vmap_area\|
 new_vmap_block\|
 shmem_file_setup\|
@@ -1045,7 +1072,6 @@ ccw_device_probe_console\|
 io_subchannel_allocate_dev\|
 io_subchannel_create_ccwdev\|
 tccb_add_dcw\|
-s390_register_adapter_interrupt\|
 fit_chunk\|
 itcw_add_tidaw\|
 itcw_init\|
@@ -1077,7 +1103,6 @@ _allocate_lcu\|
 _allocate_server\|
 zfcp_adapter_enqueue\|
 zfcp_port_enqueue\|
-zfcp_fsf_control_file\|
 zfcp_fsf_req_create\|
 virtio_ccw_setup_vq\|
 smm665_update_device\|
@@ -1093,6 +1118,7 @@ hwmon_device_register\|
 sch5636_update_device\|
 max1668_update_device\|
 ltc4261_update_device\|
+g762_update_client\|
 jc42_update_device\|
 ds620_update_client\|
 lm75_update_device\|
@@ -1102,7 +1128,12 @@ ina209_update_device\|
 tmp401_update_device\|
 pem_update_device\|
 max6639_update_device\|
+nct6775_create_attr_group\|
+mvebu_pcie_map_registers\|
+tegra_pcie_bus_alloc\|
+devm_regmap_field_alloc\|
 devm_regmap_init\|
+regmap_field_alloc\|
 regmap_init\|
 soc_device_register\|
 fw_create_instance\|
@@ -1113,7 +1144,7 @@ dma_buf_map_attachment\|
 cma_create_area\|
 __class_create\|
 __root_device_register\|
-device_create_vargs\|
+device_create_groups_vargs\|
 platform_create_bundle\|
 find_device_opp\|
 db9_probe\|
@@ -1130,8 +1161,10 @@ input_devices_seq_start\|
 input_handlers_seq_start\|
 cyttsp_probe\|
 auo_pixcir_parse_dt\|
+cyttsp4_probe\|
 bu21013_parse_dt\|
 ad7879_probe\|
+ads7846_probe_dt\|
 ib_create_send_mad\|
 ib_redirect_mad_qp\|
 ib_register_mad_agent\|
@@ -1165,12 +1198,12 @@ srpt_make_nodeacl\|
 srpt_make_tpg\|
 srpt_make_tport\|
 ocrdma_create_ah\|
-ocrdma_alloc_lkey\|
 ocrdma_alloc_pd\|
 ocrdma_alloc_ucontext\|
 ocrdma_create_cq\|
 ocrdma_create_qp\|
 ocrdma_create_srq\|
+ocrdma_get_dma_mr\|
 ocrdma_reg_user_mr\|
 mlx4_ib_create_qp\|
 mlx4_ib_alloc_pd\|
@@ -1195,6 +1228,19 @@ c2_create_cq\|
 c2_create_qp\|
 c2_reg_phys_mr\|
 c2_reg_user_mr\|
+mlx5_ib_alloc_xrcd\|
+mlx5_ib_create_qp\|
+mlx5_ib_alloc_pd\|
+mlx5_ib_alloc_ucontext\|
+mlx5_ib_alloc_fast_reg_mr\|
+mlx5_ib_alloc_fast_reg_page_list\|
+mlx5_ib_get_dma_mr\|
+mlx5_ib_reg_user_mr\|
+reg_create\|
+reg_umr\|
+mlx5_ib_create_srq\|
+mlx5_ib_create_ah\|
+mlx5_ib_create_cq\|
 __mthca_alloc_mtt\|
 mthca_alloc_mailbox\|
 mthca_ah_create\|
@@ -1260,15 +1306,22 @@ mon_text_read_wait\|
 isp1760_register\|
 oxu_create\|
 fsl_usb2_device_register\|
-get_usbdev\|
-ci13xxx_add_device\|
+ci_hdrc_add_device\|
 dwc3_alloc_one_event_buffer\|
 ffs_fs_mount\|
 f_audio_buffer_alloc\|
 fsg_common_init\|
+gphonet_setup_default\|
+phonet_alloc\|
+phonet_alloc_inst\|
+rndis_alloc\|
+rndis_alloc_inst\|
+atmel_udc_of_init\|
+usba_udc_pdata\|
 functionfs_acquire_dev_callback\|
 gether_connect\|
 gether_setup_name\|
+gether_setup_name_default\|
 config_desc_make\|
 function_make\|
 gadgets_make\|
@@ -1276,8 +1329,12 @@ net2272_probe_init\|
 usb_get_function_instance\|
 try_get_usb_function_instance\|
 usb_get_function\|
+ncm_alloc\|
+ncm_alloc_inst\|
 usbg_make_nodeacl\|
 usbg_make_tport\|
+geth_alloc\|
+geth_alloc_inst\|
 copy_gadget_strings\|
 usb_gstrings_attach\|
 gser_alloc\|
@@ -1286,10 +1343,13 @@ loopback_alloc\|
 loopback_alloc_instance\|
 acm_alloc_func\|
 acm_alloc_instance\|
+eem_alloc\|
+eem_alloc_inst\|
 source_sink_alloc_inst\|
+ecm_alloc\|
+ecm_alloc_inst\|
 obex_alloc\|
 obex_alloc_inst\|
-tegra_usb_get_phy\|
 __of_usb_find_phy\|
 __usb_find_phy\|
 __usb_find_phy_dev\|
@@ -1330,59 +1390,94 @@ amba_aphb_device_add\|
 fwserial_claim_port\|
 _get_shm_symbol_values\|
 ad7606_probe\|
-r2hb_hb_group_make_item\|
-r2nm_cluster_group_make_group\|
-r2nm_node_group_make_item\|
 ipu_dp_get\|
 ipu_dmfc_get\|
 ipu_dc_get\|
 ipu_idmac_get\|
 ipu_di_get\|
+do_config_log_add\|
 llog_osd_dir_get\|
+lustre_cfg_rename\|
+cl_page_alloc\|
+cl_page_find0\|
+dt_find_or_create\|
 dt_index_feat_select\|
 dt_locate_at\|
 dt_reg_open\|
 dt_store_resolve\|
-llo_create_obj\|
-llo_reg_open\|
-llo_store_resolve\|
+__local_file_create\|
 local_file_find_or_create\|
 local_file_find_or_create_with_fid\|
 local_index_find_or_create\|
 local_index_find_or_create_with_fid\|
 lustre_acl_xattr_merge2ext\|
+lustre_posix_acl_xattr_2ext\|
+cl_req_alloc\|
 llog_filp_open\|
 llog_alloc_handle\|
 cl_env_new\|
 lprocfs_add_simple\|
 lprocfs_register\|
+cl_lock_alloc\|
+htable_lookup\|
+lu_object_alloc\|
 class_new_export\|
-kuc_alloc\|
 class_newdev\|
+kuc_alloc\|
+osc_extent_find\|
+osc_device_alloc\|
 osc_key_init\|
 osc_session_init\|
 cfs_crypto_hash_init\|
+upcall_cache_get_entry\|
+upcall_cache_init\|
+lustre_cfg_new\|
 ll_lookup_one_len\|
 alloc_capa\|
+mdc_enqueue_pack\|
+mdc_intent_getattr_pack\|
+mdc_intent_layout_pack\|
+mdc_intent_unlink_pack\|
 ll_prep_md_op_data\|
 ll_cl_init\|
 vvp_key_init\|
 vvp_session_key_init\|
+ll_sa_entry_alloc\|
 ll_get_dir_page\|
 ll_getname\|
 ll_close_next_lli\|
+ll_fault_io_init\|
+ll_lookup_it\|
+ll_iget\|
+ll_fh_to_dentry\|
+ll_fh_to_parent\|
+ll_get_parent\|
+ll_iget_for_nfs\|
 search_inode_for_lustre\|
+ccc_device_alloc\|
 ccc_key_init\|
 ccc_session_key_init\|
+cl_echo_object_find\|
+echo_md_lookup\|
+echo_resolve_path\|
 echo_session_key_init\|
 echo_thread_key_init\|
+fld_cache_entry_create\|
+fld_cache_init\|
 lmv_find_target\|
 lmv_get_target\|
 lmv_locate_mds\|
+ptlrpc_register_service\|
+ptlrpcd_alloc_work\|
+fsfilt_get_ops\|
+lov_sublock_alloc\|
 lovsub_device_alloc\|
+lov_sub_get\|
+lov_device_alloc\|
 lov_emerg_alloc\|
 lov_key_init\|
 lov_session_key_init\|
+ldlm_enqueue_pack\|
 comedi_alloc_board_minor\|
 solo_enc_alloc\|
 uart_get\|
@@ -1392,16 +1487,18 @@ syscon_clk_register\|
 clk_register_pll\|
 clk_register_factors\|
 mmp_clk_register_factor\|
+pll_clk_register\|
+src_clk_register\|
 clk_reg_sysctrl\|
 clk_reg_prcmu\|
 clk_reg_prcc\|
+clk_register_zynq_pll\|
 devm_clk_get\|
 mxs_clk_frac\|
 mxs_clk_ref\|
 mxs_clk_pll\|
 mxs_clk_div\|
 clk_register_vco_pll\|
-zynq_cpu_subclk_setup\|
 icst_clk_register\|
 tegra_clk_register_sync_source\|
 tegra_clk_register_periph_gate\|
@@ -1421,12 +1518,14 @@ clk_gating_get_src\|
 clk_register_composite\|
 clk_register_fixed_factor\|
 ptp_clock_register\|
+tce_iommu_open\|
 vfio_create_group\|
 vfio_group_create_device\|
+vfio_group_get_external_user\|
 vfio_iommu_type1_open\|
 tcm_vhost_make_nodeacl\|
 tcm_vhost_make_tport\|
-vhost_scsi_allocate_cmd\|
+vhost_scsi_get_tag\|
 get_raw_socket\|
 get_tap_socket\|
 talitos_alg_alloc\|
@@ -1439,6 +1538,7 @@ caam_hash_alloc\|
 of_get_gpio_regulator_config\|
 tps65090_parse_dt_reg_data\|
 of_get_fixed_voltage_config\|
+devm_regulator_get_optional\|
 regulator_register\|
 _regulator_get\|
 alloc_iovm_area\|
@@ -1458,11 +1558,14 @@ xennet_create_dev\|
 alloc_param_target\|
 make_netconsole_target\|
 xenvif_alloc\|
+ath10k_fetch_fw_file\|
 ath5k_txq_setup\|
 carl9170_alloc\|
 ath6kl_cfg80211_add_iface\|
 wil_cfg80211_init\|
 wil_if_alloc\|
+iwl_drv_start\|
+iwl_trans_pcie_alloc\|
 get_device_pmkids\|
 remove_pmkid\|
 update_pmkid\|
@@ -1473,7 +1576,7 @@ brcmf_alloc_vif\|
 brcmf_cfg80211_add_iface\|
 brcmf_setup_wiphy\|
 brcmf_bus_gettxq\|
-brcmf_fws_mac_descriptor_lookup\|
+brcmf_fws_macdesc_lookup\|
 brcmf_add_if\|
 brcmf_p2p_add_vif\|
 brcmf_p2p_create_p2pdev\|
@@ -1486,6 +1589,9 @@ i2400m_get_device_info\|
 i2400m_msg_to_dev\|
 sis190_init_board\|
 mlx4_alloc_cmd_mailbox\|
+alloc_cmd\|
+alloc_cmd_box\|
+mlx5_alloc_cmd_msg\|
 sun3_82586_probe\|
 i82596_probe\|
 tc515_probe\|
@@ -1508,6 +1614,7 @@ sun3lance_probe\|
 lance_probe\|
 cs89x0_probe\|
 vxlan_socket_create\|
+vxlan_sock_add\|
 phy_attach\|
 phy_connect\|
 tun_alloc_skb\|
@@ -1516,6 +1623,7 @@ s3c64xx_get_slave_ctrldata\|
 s3c64xx_spi_parse_dt\|
 ep93xx_spi_dma_prepare\|
 fsl_spi_probe\|
+bank_num_to_bank\|
 create_pinctrl\|
 create_state\|
 devm_pinctrl_get\|
@@ -1537,11 +1645,13 @@ ti_bandgap_get_sensor_data\|
 tca6507_led_dt_init\|
 gpio_led_register_device\|
 gpio_leds_create_of\|
+pca963x_dt_init\|
 dummy_allocate_iso_context\|
 fw_iso_context_create\|
 ohci_allocate_iso_context\|
 spear1340_cpu_get_possible_parent\|
 transport_init_session\|
+transport_init_session_tags\|
 core_tpg_add_initiator_node_acl\|
 core_tpg_pre_addlun\|
 core_tpg_pre_dellun\|
@@ -1580,11 +1690,13 @@ target_core_register_fabric\|
 target_core_stat_mkdir\|
 target_fabric_configfs_init\|
 pn533_send_cmd_sync\|
+nfcsim_init_dev\|
 devfreq_add_device\|
 find_devfreq_governor\|
 find_device_devfreq\|
 ghes_new\|
-sirfsoc_dma_prep_cyclic\|
+__fmc_scan_sdb_tree\|
+ff_dev_create\|
 sirfsoc_dma_prep_interleaved\|
 dw_dma_cyclic_prep\|
 mv_xor_channel_add\|
@@ -1642,11 +1754,12 @@ syscon_regmap_lookup_by_phandle\|
 ab8500_gpadc_get\|
 add_child\|
 add_numbered_child\|
+max8998_i2c_parse_dt_pdata\|
 sec_pmic_i2c_parse_dt_pdata\|
 max77686_get_regmap\|
 dm_build_path_uevent\|
-mca_cannibalize\|
 bch_btree_node_get\|
+mca_cannibalize\|
 bcachecg_create\|
 dm_kcopyd_client_create\|
 dm_region_hash_create\|
@@ -1694,6 +1807,8 @@ check_rtc_access_enable\|
 devm_rtc_device_register\|
 rtc_device_register\|
 backlight_device_register\|
+devm_backlight_device_register\|
+devm_lcd_device_register\|
 lcd_device_register\|
 tps65217_bl_parse_dt\|
 exynos_dp_dt_parse_pdata\|
@@ -1706,7 +1821,7 @@ i2o_iop_alloc\|
 i2o_msg_get_wait\|
 i2o_scsi_host_alloc\|
 s3c24xx_init_intc\|
-mailbox_get\|
+omap_mbox_get\|
 pt1_alloc_adapter\|
 ctx_get_frame\|
 get_frame\|
@@ -1714,6 +1829,8 @@ isp_stat_buf_get\|
 vb2_vmalloc_attach_dmabuf\|
 v4l2_m2m_ctx_init\|
 v4l2_m2m_init\|
+v4l2_clk_find\|
+v4l2_clk_register\|
 vb2_dc_alloc\|
 vb2_dc_attach_dmabuf\|
 vb2_dc_dmabuf_ops_map\|
@@ -1723,21 +1840,26 @@ tegra_bo_create_with_handle\|
 tegra_fb_alloc\|
 tegra_fb_create\|
 tegra_fbdev_create\|
+__drm_gem_cma_create\|
 drm_gem_cma_create\|
 drm_gem_cma_create_with_handle\|
+drm_gem_cma_prime_import_sg_table\|
 drm_fb_cma_alloc\|
 drm_fb_cma_create\|
 drm_fbdev_cma_init\|
 drm_sysfs_create\|
 shmob_drm_fb_create\|
 edid_load\|
-drm_gem_prime_export\|
+drm_gem_map_dma_buf\|
 drm_gem_prime_import\|
+drm_prime_pages_to_sg\|
+export_and_register_object\|
 psb_framebuffer_create\|
 psb_user_framebuffer_create\|
 mgag200_user_framebuffer_create\|
 vmw_kms_fb_create\|
 create_hw_context\|
+i915_gem_context_get_hang_stats\|
 intel_framebuffer_create\|
 intel_framebuffer_create_for_mode\|
 intel_modeset_pipe_config\|
@@ -1745,6 +1867,7 @@ intel_user_framebuffer_create\|
 i915_gem_dmabuf_vmap\|
 i915_gem_map_dma_buf\|
 i915_gem_prime_import\|
+__i915_gem_vma_create\|
 radeon_gem_prime_import_sg_table\|
 radeon_gem_prime_vmap\|
 radeon_user_framebuffer_create\|
@@ -1775,7 +1898,6 @@ u_memcpya\|
 nva3_pm_clocks_pre\|
 nouveau_user_framebuffer_create\|
 omap_gem_vaddr\|
-_drm_gem_get_pages\|
 dmm_txn_init\|
 tiler_reserve_1d\|
 tiler_reserve_2d\|
@@ -1783,6 +1905,8 @@ omap_gem_map_dma_buf\|
 omap_gem_prime_import\|
 omap_framebuffer_create\|
 omap_framebuffer_init\|
+rcar_du_fb_create\|
+drm_gem_get_pages\|
 ast_user_framebuffer_create\|
 udl_fb_user_fb_create\|
 udl_gem_prime_import\|
@@ -1811,4 +1935,3 @@ sfi_check_table\)(...);
 - ret != NULL
 + !IS_ERR(ret)
 )
-
