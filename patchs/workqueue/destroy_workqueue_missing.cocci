@@ -1,9 +1,10 @@
 /// add missing destroy_workqueue() on error in {{function}}
 ///
+/// Except File: fs/sysfs/file.c : special case that can not detect correctly
+///
 /// Add the missing destroy_workqueue() before return from
 /// {{function}} in the error handling case.
 ///
-
 @r1 exists@
 expression ret, wq;
 expression E != {0};
@@ -27,6 +28,9 @@ position p;
        when != cx25821_dev_unregister(...)
        when != crypt_dtr(...)
        when != destroy(...)
+       when != dwc2_hcd_release(...)
+       when != snd_hda_bus_free(...)
+       when != mwifiex_terminate_workqueue(...)
        when forall
    return@p E;
   }

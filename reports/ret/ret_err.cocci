@@ -282,6 +282,26 @@
 /// Except File: drivers/staging/media/msi3101/sdr-msi3101.c : special case that can not detect correctly
 /// Except File: arch/x86/oprofile/op_model_amd.c : special case that can not detect correctly
 /// Except File: drivers/regulator/max8660.c : special case that can not detect correctly
+/// Except File: Documentation/mic/mpssd/mpssd.c : special case that can not detect correctly
+/// Except File: drivers/misc/mic/host/mic_x100.c : special case that can not detect correctly
+/// Except File: drivers/net/ethernet/qlogic/qlge/qlge_mpi.c : special case that can not detect correctly
+/// Except File: drivers/input/touchscreen/cyttsp4_core.c : special case that can not detect correctly
+/// Except File: drivers/input/serio/i8042.c : special case that can not detect correctly
+/// Except File: drivers/staging/xillybus/xillybus_core.c : special case that can not detect correctly
+/// Except File: fs/sysfs/file.c : special case that can not detect correctly
+/// Except File: fs/gfs2/xattr.c : special case that can not detect correctly
+/// Except File: drivers/mtd/ubi/attach.c : special case that can not detect correctly
+/// Except File: drivers/gpu/drm/exynos/exynos_drm_drv.c : special case that can not detect correctly
+/// Except File: drivers/usb/host/fhci-hcd.c : special case that can not detect correctly
+/// Except File: net/bluetooth/amp.c : special case that can not detect correctly
+/// Except File: arch/arm/kvm/mmu.c : special case that can not detect correctly
+/// Except File: drivers/net/ethernet/chelsio/cxgb4vf/cxgb4vf_main.c : special case that can not detect correctly
+/// Except File: drivers/spi/spi.c : special case that can not detect correctly
+/// Except File: drivers/md/bitmap.c : special case that can not detect correctly
+/// Except File: drivers/hwmon/emc1403.c : special case that can not detect correctly
+/// Except File: drivers/iio/adc/nau7802.c : special case that can not detect correctly
+/// Except File: drivers/usb/wusbcore/cbaf.c : special case that can not detect correctly
+/// Except File: drivers/staging/wlags49_h2/wl_priv.c : special case that can not detect correctly
 ///
 /// Fix to return a negative error code from the error handling
 /// case instead of 0, as done elsewhere in this function.
@@ -354,7 +374,9 @@ _exlist = [
     'ftrace.c|rec|!_stat_->_pages_->_next',
     'qlcnic_main.c|err|qlcnic_83xx_check_(_adapter_)',
     'btmrvl_sdio.c|ret|(_status_&_bits_)_==_bits',
-    'core.c|pmu|!_ret'
+    'core.c|pmu|!_ret',
+    'skd_main.c|rc|rc_<_SKD_MIN_MSIX_COUNT',
+    'big_key.c|ret|written_!=_datalen'
 ]
 
 def _is_except(fname, ret, e):

@@ -1,6 +1,7 @@
 /// add missing misc_deregister() when module exit
 ///
 /// Except File: drivers/char/efirtc.c : special case that can not detect correctly
+/// Except File: drivers/watchdog/mpc8xxx_wdt.c : special case that can not detect correctly
 ///
 /// We have register misc device when module init, and
 /// need deregister it when module exit.

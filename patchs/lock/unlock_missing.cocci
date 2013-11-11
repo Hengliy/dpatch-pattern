@@ -33,6 +33,7 @@
 /// Except File: net/llc/llc_proc.c : special case that can not detect correctly
 /// Except File: include/linux/lockref.h : special case that can not detect correctly
 /// Except File: lib/lockref.c : special case that can not detect correctly
+/// Except File: ipc/sem.c : special case that can not detect correctly
 ///
 /// Add the missing unlock before return from function {{function}}
 /// in the error handling case.
