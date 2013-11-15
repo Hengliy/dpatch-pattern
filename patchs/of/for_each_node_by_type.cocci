@@ -1,6 +1,6 @@
 /// use for_each_node_by_type() macro
 ///
-/// Fixed: for_each_node_by_type\(([^,]+),([^\)]+)\) ... for_each_node_by_type(\g<1>, \g<2>)
+/// Fixed: for_each_node_by_type\(([^,]+),([^ \)]+)\) ... for_each_node_by_type(\g<1>, \g<2>)
 ///
 /// Except File: include/linux/of.h : implementation file
 ///

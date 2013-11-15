@@ -1,6 +1,6 @@
 /// using for_each_set_bit to simplify the code
 ///
-/// Fixed: for_each_set_bit\(([^,]+),([^,]+),([^\)]+)\) ... for_each_set_bit(\g<1>, \g<2>, \g<3>)
+/// Fixed: for_each_set_bit\(([^,]+),([^, ]+),([^ \)]+)\) ... for_each_set_bit(\g<1>, \g<2>, \g<3>)
 ///
 /// Using for_each_set_bit() to simplify the code.
 ///

@@ -1,6 +1,6 @@
 /// use for_each_compatible_node() macro
 ///
-/// Fixed: for_each_compatible_node\(([^,]+),([^,]+),([^\)]+)\) ... for_each_compatible_node(\g<1>, \g<2>, \g<3>)
+/// Fixed: for_each_compatible_node\(([^,]+),([^, ]+),([^ \)]+)\) ... for_each_compatible_node(\g<1>, \g<2>, \g<3>)
 ///
 /// Except File: include/linux/of.h : implementation file
 ///

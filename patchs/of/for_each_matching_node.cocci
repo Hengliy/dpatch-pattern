@@ -1,6 +1,6 @@
 /// use for_each_matching_node() macro
 ///
-/// Fixed: for_each_matching_node\(([^,]+),([^\)]+)\) ... for_each_matching_node(\g<1>, \g<2>)
+/// Fixed: for_each_matching_node\(([^,]+),([^ \)]+)\) ... for_each_matching_node(\g<1>, \g<2>)
 ///
 /// Except File: include/linux/of.h : implementation file
 ///
