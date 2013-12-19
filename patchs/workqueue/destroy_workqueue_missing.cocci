@@ -1,6 +1,10 @@
 /// add missing destroy_workqueue() on error in {{function}}
 ///
 /// Except File: fs/sysfs/file.c : special case that can not detect correctly
+/// Except File: drivers/net/ethernet/chelsio/cxgb3/cxgb3_main.c : special case that can not detect correctly
+/// Except File: drivers/net/ethernet/qlogic/qlcnic/qlcnic_sriov_common.c : special case that can not detect correctly
+/// Except File: drivers/pci/hotplug/shpchp_core.c : special case that can not detect correctly
+/// Except File: drivers/net/ethernet/sfc/ptp.c : special case that can not detect correctly
 ///
 /// Add the missing destroy_workqueue() before return from
 /// {{function}} in the error handling case.
@@ -31,6 +35,7 @@ position p;
        when != dwc2_hcd_release(...)
        when != snd_hda_bus_free(...)
        when != mwifiex_terminate_workqueue(...)
+       when != dlm_destroy_dlm_worker(...)
        when forall
    return@p E;
   }

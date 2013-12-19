@@ -2,19 +2,23 @@
 ///
 /// Except File: drivers/media/platform/fsl-viu.c : special case that can not detect correctly
 /// Except File: drivers/spi/spi-atmel.c : special case that can not detect correctly
+/// Except File: drivers/mmc/host/sdhci-pxav3.c : special case that can not detect correctly
+/// Except File: drivers/i2c/busses/i2c-exynos5.c : special case that can not detect correctly
+/// Except File: drivers/i2c/busses/i2c-bcm-kona.c : special case that can not detect correctly
+/// Except File: drivers/usb/chipidea/usbmisc_imx.c : special case that can not detect correctly
 ///
 /// clock source is prepared and enabled by clk_prepare_enable()
 /// in probe function, but no disable or unprepare in remove.
 ///
 @r1@
 identifier fn_probe;
-expression clk;
+expression clk, ret;
 type T;
 @@
 T fn_probe(...)
 {
   ...
-  clk_prepare_enable(clk)
+  ret = clk_prepare_enable(clk)
   ...
 }
 

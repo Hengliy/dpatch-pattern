@@ -2,6 +2,10 @@
 ///
 /// Except File: drivers/net/ethernet/freescale/fs_enet/fs_enet-main.c : special case that can not detect correctly
 /// Except File: drivers/tty/serial/imx.c : special case that can not detect correctly
+/// Except File: sound/soc/fsl/imx-audmux.c : special case that can not detect correctly
+/// Except File: drivers/mtd/nand/gpmi-nand/gpmi-lib.c : special case that can not detect correctly
+/// Except File: sound/soc/kirkwood/kirkwood-i2s.c : special case that can not detect correctly
+/// Except File: drivers/tty/serial/mpc52xx_uart.c : special case that can not detect correctly
 ///
 /// Add the missing clk_disable_unprepare() before return
 /// from {{function}} in the error handling case.
@@ -37,6 +41,7 @@ position p1, p2 != {ok1.p};
  if@p1 (...) {
    ... when != clk_disable_unprepare(clk)
        when != mpc5121_nfc_free(...)
+       when != imx_keypad_close(...)
        when forall
    return@p2 E;
   }

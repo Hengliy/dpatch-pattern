@@ -1,5 +1,11 @@
 /// add missing {{newfield}} to {{struct}}
 ///
+/// Except File: drivers/net/tun.c : special case that can not detect correctly
+/// Except File: drivers/net/team/team.c : special case that can not detect correctly
+/// Except File: drivers/net/macvtap.c : special case that can not detect correctly
+/// Except File: crypto/algif_skcipher.c : special case that can not detect correctly
+/// Except File: crypto/algif_hash.c : special case that can not detect correctly
+///
 /// Add missing {{newfield}} of {{struct}}. This prevents the
 /// module from being removed from underneath its users.
 ///

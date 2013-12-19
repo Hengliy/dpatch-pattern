@@ -42,6 +42,15 @@ expression r1.ret;
 position r1.p;
 @@
 (
+- if (IS_ERR@p(ret)) 
++ if (!ret)
+{ 
+<+... 
+- PTR_ERR(ret)
++ -ENOMEM
+...+>
+}
+|
 ret == NULL || IS_ERR@p(ret)
 |
 IS_ERR@p(ret) || ret == NULL

@@ -2,6 +2,13 @@
 ///
 /// Except File: drivers/usb/gadget/dummy_hcd.c : special case that can not detect correctly
 /// Except File: drivers/tty/serial/mpc52xx_uart.c : special case that can not detect correctly
+/// Except File: drivers/video/au1100fb.c : special case that can not detect correctly
+/// Except File: drivers/mtd/devices/docg3.c : special case that can not detect correctly
+/// Except File: drivers/video/sh_mobile_lcdcfb.c : special case that can not detect correctly
+/// Except File: drivers/net/ethernet/ibm/emac/core.c : special case that can not detect correctly
+/// Except File: drivers/media/platform/davinci/vpbe_display.c : special case that can not detect correctly
+/// Except File: drivers/regulator/wm8350-regulator.c : special case that can not detect correctly
+/// Except File: drivers/input/touchscreen/atmel-wm97xx.c : special case that can not detect correctly
 ///
 /// The XXX() use the platform drvdata as
 /// a type of XXX, we should pass correct platform drvdata

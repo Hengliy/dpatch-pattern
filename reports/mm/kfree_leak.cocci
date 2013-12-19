@@ -27,6 +27,7 @@
 /// Except File: drivers/net/ethernet/sfc/ef10.c : special case that can not detect correctly
 /// Except File: drivers/target/loopback/tcm_loop.c : special case that can not detect correctly
 /// Except File: fs/squashfs/file_direct.c : special case that can not detect correctly
+/// Except File: fs/ubifs/tnc.c : special case that can not detect correctly
 ///
 /// memory is malloced in {{function}} and should be freed before
 /// leaving from the error handling cases, otherwise it will cause

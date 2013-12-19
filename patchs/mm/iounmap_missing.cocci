@@ -14,6 +14,7 @@
 /// Except File: drivers/mfd/sm501.c : special case that can not detect correctly
 /// Except File: drivers/scsi/arcmsr/arcmsr_hba.c : special case that can not detect correctly
 /// Except File: drivers/net/ethernet/sfc/ef10.c : special case that can not detect correctly
+/// Except File: drivers/staging/rts5208/rtsx.c : special case that can not detect correctly
 ///
 /// Add the missing iounmap() before return from {{function}}
 /// in the error handling case.
@@ -98,6 +99,8 @@ type T;
        when != ioc4_serial_remove_one(...)
        when != omap_dmm_remove(...)
        when != sh_mobile_lcdc_remove(...)
+       when != ddb_unmap(...)
+       when != amba_release_regions(...)
        when forall
    return@p2 E;
   }

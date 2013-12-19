@@ -1,6 +1,7 @@
 /// drop devm_free_irq of devm_ allocated irq
 ///
 /// Except File: drivers/tty/serial/clps711x.c : special case that can not detect correctly
+/// Except File: drivers/ata/libata-core.c : special case that can not detect correctly
 ///
 /// The devm_request_irq function allocates irq that is released
 /// when a driver detaches. Thus, there is no reason to explicitly

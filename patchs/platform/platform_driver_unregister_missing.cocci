@@ -1,5 +1,7 @@
 /// missing platform_driver_unregister() on error in {{function}}
 ///
+/// Except File: drivers/net/wireless/mac80211_hwsim.c : special case that can not detect correctly
+///
 /// Add the missing platform_driver_unregister() before return
 /// from {{function}} in the error handling case.
 ///
