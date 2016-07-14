@@ -11,8 +11,8 @@ do
 		echo "SKIP: $name exists: $DST"
 	else
 		cp $name $COCCI/
-		MSG=`sh cocci2msg.sh $COCCI/$name`
-		git add $COCCI/$name
+		MSG=`sh cocci2msg.sh $COCCI/$bname`
+		git add $COCCI/$bname
 		git commit -s -m "$MSG"
 		git log -n 1
 	fi
