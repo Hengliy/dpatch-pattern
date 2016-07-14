@@ -12,7 +12,7 @@ echo "patch: new patch pattern $NAME"
 fi
 echo
 #DESC=`grep /// $COCCI | sed -e 's/\/\/\/ Fixed: .*//' | sed -e 's/\/\/\/ Except File: .*//'`
-grep /// $COCCI | sed -e 's/\/\/\/ Fixed: .*//' | sed -e 's/\/\/\/ Except File: .*//' | sed -e 's/\/\/\/ //' | sed -e 's/\/\/\///' |  while read line
+grep /// $COCCI | sed -e 's/\/\/\/ Fixed: .*//' | sed -e 's/\/\/\/ Options: .*//' | sed -e 's/\/\/\/ Except File: .*//' | sed -e 's/\/\/\/ //' | sed -e 's/\/\/\///' |  while read line
 do
 	if [ "$line" == "" ]; then
 		echo "blank" > /dev/null
