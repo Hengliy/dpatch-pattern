@@ -1,4 +1,4 @@
-/// convert to use leXX_add_cpu()
+/// convert to use {{newfunc}}
 ///
 /// Except File: include/linux/byteorder/generic.h : implementation file
 /// Except File: drivers/net/wireless/ath/ath6kl/main.c : special case that can not detect correctly

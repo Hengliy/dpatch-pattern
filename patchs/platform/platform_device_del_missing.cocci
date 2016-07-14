@@ -3,6 +3,7 @@
 /// Except File: drivers/char/ipmi/ipmi_si_intf.c : special case that can not detect correctly
 /// Except File: drivers/tty/serial/8250/8250_core.c : special case that can not detect correctly
 /// Except File: drivers/media/platform/soc_camera/sh_mobile_ceu_camera.c : special case that can not detect correctly
+/// Except File: drivers/pcmcia/i82365.c : special case that can not detect correctly
 ///
 /// Add the missing platform_device_del() before return from
 /// {{function}} in the error handling case.

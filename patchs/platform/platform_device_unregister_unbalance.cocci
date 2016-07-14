@@ -1,6 +1,7 @@
 /// add missing platform_device_unregister() when module exit
 ///
 /// Except File: drivers/staging/octeon-usb/octeon-hcd.c : special case that can not detect correctly
+/// Except File: tools/testing/nvdimm/test/nfit.c : special case that can not detect correctly
 ///
 /// We have registered platform device when module init, and
 /// need unregister it when module exit.

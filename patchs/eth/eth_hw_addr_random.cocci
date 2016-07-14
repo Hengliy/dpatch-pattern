@@ -1,4 +1,4 @@
-/// using eth_hw_addr_random() for random MAC and set device flag
+/// use eth_hw_addr_random() for random MAC and set device flag
 ///
 /// Except File: include/linux/etherdevice.h : implementation file
 ///

@@ -6,6 +6,7 @@
 /// Except File: drivers/mtd/nand/gpmi-nand/gpmi-lib.c : special case that can not detect correctly
 /// Except File: sound/soc/kirkwood/kirkwood-i2s.c : special case that can not detect correctly
 /// Except File: drivers/tty/serial/mpc52xx_uart.c : special case that can not detect correctly
+/// Except File: drivers/spi/spi-bcm63xx.c : special case that can not detect correctly
 ///
 /// Add the missing clk_disable_unprepare() before return
 /// from {{function}} in the error handling case.

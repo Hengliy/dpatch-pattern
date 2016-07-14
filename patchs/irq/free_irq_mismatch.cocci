@@ -12,6 +12,11 @@
 /// Except File: arch/um/kernel/irq.c : special case that can not detect correctly
 /// Except File: drivers/net/wan/dscc4.c : special case that can not detect correctly
 /// Except File: arch/arm/mach-pxa/am200epd.c : special case that can not detect correctly
+/// Except File: drivers/scsi/atari_scsi.c : special case that can not detect correctly
+/// Except File: drivers/net/ethernet/intel/fm10k/fm10k_pci.c : special case that can not detect correctly
+/// Except File: drivers/crypto/qat/qat_dh895xcc/adf_isr.c : special case that can not detect correctly
+/// Except File: drivers/crypto/qat/qat_common/adf_isr.c : special case that can not detect correctly
+/// Except File: drivers/net/ethernet/netronome/nfp/nfp_net_common.c : special case that can not detect correctly
 ///
 /// free_irq() expects the same device identity that was passed to
 /// corresponding request_irq(), otherwise the IRQ is not freed.

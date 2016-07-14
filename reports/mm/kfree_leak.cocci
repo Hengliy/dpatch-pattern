@@ -28,6 +28,13 @@
 /// Except File: drivers/target/loopback/tcm_loop.c : special case that can not detect correctly
 /// Except File: fs/squashfs/file_direct.c : special case that can not detect correctly
 /// Except File: fs/ubifs/tnc.c : special case that can not detect correctly
+/// Except File: drivers/iommu/intel_irq_remapping.c : special case that can not detect correctly
+/// Except File: arch/x86/kernel/cpu/microcode/intel_early.c : special case that can not detect correctly
+/// Except File: drivers/staging/tidspbridge/rmgr/drv_interface.c : special case that can not detect correctly
+/// Except File: drivers/char/hw_random/core.c : special case that can not detect correctly
+/// Except File: drivers/acpi/acpi_lpss.c : special case that can not detect correctly
+/// Except File: net/sched/cls_u32.c : special case that can not detect correctly
+/// Except File: drivers/nvme/host/pci.c : special case that can not detect correctly
 ///
 /// memory is malloced in {{function}} and should be freed before
 /// leaving from the error handling cases, otherwise it will cause

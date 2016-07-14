@@ -36,7 +36,7 @@ module_exit(fn_exit);
 @init depends on r1 && r2 && r3 && r4@
 identifier r1.fn_init;
 identifier r1.driver;
-declarer name module_i2c_driver;
+declarer name module_acpi_driver;
 @@
 
 -int fn_init(void)

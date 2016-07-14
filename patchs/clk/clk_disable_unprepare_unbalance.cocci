@@ -6,6 +6,13 @@
 /// Except File: drivers/i2c/busses/i2c-exynos5.c : special case that can not detect correctly
 /// Except File: drivers/i2c/busses/i2c-bcm-kona.c : special case that can not detect correctly
 /// Except File: drivers/usb/chipidea/usbmisc_imx.c : special case that can not detect correctly
+/// Except File: drivers/spi/spi-bcm63xx-hsspi.c : special case that can not detect correctly
+/// Except File: drivers/mmc/host/sdhci-of-arasan.c : special case that can not detect correctly
+/// Except File: sound/soc/samsung/i2s.c : special case that can not detect correctly
+/// Except File: drivers/tty/serial/imx.c : special case that can not detect correctly
+/// Except File: drivers/pwm/pwm-atmel-tcb.c : special case that can not detect correctly
+/// Except File: drivers/pwm/pwm-atmel-hlcdc.c : special case that can not detect correctly
+/// Except File: drivers/media/platform/sti/c8sectpfe/c8sectpfe-core.c : special case that can not detect correctly
 ///
 /// clock source is prepared and enabled by clk_prepare_enable()
 /// in probe function, but no disable or unprepare in remove.
@@ -57,6 +64,8 @@ T fn_remove(...)
 {
   ... when != clk_disable_unprepare(clk)
       when != mpc5121_nfc_free(...)
+      when != atlas7_wdt_shutdown(...)
+      when != s3cmci_shutdown(...)
       when forall
 + clk_disable_unprepare(clk);
 ? return ...;

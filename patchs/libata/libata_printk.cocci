@@ -1,8 +1,8 @@
-/// convert ata_<foo>_printk() to ata_<foo>_<level>()
+/// convert {{oldfunc}} to {{newfunc}}
 ///
 /// Except File: include/linux/libata.h : special case that can not detect correctly
 ///
-/// Using ata_<foo>_<level>() instead of ata_<foo>_printk().
+/// Using {{newfunc}} instead of {{oldfunc}}.
 ///
 @@
 expression ap;

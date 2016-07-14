@@ -1,4 +1,4 @@
-/// using eth_random_addr() to generate random MAC
+/// use eth_random_addr() to generate random MAC
 ///
 /// Except File: include/linux/etherdevice.h : implementation file
 ///

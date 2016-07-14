@@ -5,19 +5,27 @@
 /// check should be replaced with NULL test.
 ///
 @@
-expression ret;
+expression ret, E;
 @@
 ret = pinctrl_register(...);
-<...
+... when != ret = E
 (
-- !IS_ERR(ret)
-+ ret
+- ret == NULL || IS_ERR(ret)
++ IS_ERR(ret)
 |
-- IS_ERR(ret)
-+ !ret
+- IS_ERR(ret) || ret == NULL
++ IS_ERR(ret)
 |
-- PTR_ERR(ret)
-+ -EINVAL
+- ret != NULL && !IS_ERR(ret)
++ !IS_ERR(ret)
+|
+- !IS_ERR(ret) && ret != NULL
++ !IS_ERR(ret)
+|
+- ret == NULL
++ IS_ERR(ret)
+|
+- ret != NULL
++ !IS_ERR(ret)
 )
-...>
 

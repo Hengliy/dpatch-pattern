@@ -2,6 +2,8 @@
 ///
 /// Except File: drivers/usb/gadget/dummy_hcd.c : special case that can not detector as ok
 /// Except File: drivers/staging/lustre/lustre/ldlm/ldlm_lib.c : special case that can not detect correctly
+/// Except File: drivers/usb/gadget/udc/dummy_hcd.c : special case that can not detect correctly
+/// Except File: drivers/gpu/drm/ttm/ttm_execbuf_util.c : special case that can not detect correctly
 ///
 /// Since we will remove items off the list using list_del() we need
 /// to use a safe version of the list_for_each() macro aptly named

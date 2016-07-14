@@ -1,5 +1,7 @@
 /// add missing misc_deregister() on error in {{function}}
 ///
+/// Except File: drivers/input/serio/serio_raw.c : special case that can not detect correctly
+///
 /// Add the missing misc_deregister() before return from
 /// {{function}} in the error handling case.
 ///

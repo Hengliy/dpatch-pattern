@@ -31,6 +31,7 @@ position p != { ok.p };
     ... when != free_netdev(E);
         when != xemaclite_remove_ndev(E, ...);
         when != cleanup_dev(E);
+        when != netvsc_free_netdev(...);
         when != __rtl8139_cleanup_dev(E);
     goto l;
  }
@@ -39,6 +40,7 @@ l:
     ... when != free_netdev(E);
         when != xemaclite_remove_ndev(E, ...);
         when != cleanup_dev(E);
+        when != netvsc_free_netdev(...);
         when != __rtl8139_cleanup_dev(E);
     return E2@p;
 
@@ -85,6 +87,8 @@ statement S;
         when != cleanup_dev(E);
         when != __rtl8139_cleanup_dev(E);
         when != AdapterFree(...);
+        when != netvsc_free_netdev(...);
+        when != xennet_free_netdev(...);
 +   free_netdev(E);
     return E2;
  }

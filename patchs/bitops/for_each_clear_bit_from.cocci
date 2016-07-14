@@ -1,4 +1,4 @@
-/// using for_each_clear_bit_from to simplify the code
+/// use for_each_clear_bit_from to simplify the code
 ///
 /// Fixed: for_each_clear_bit_from\(([^,]+),([^, ]+),([^ \)]+)\) ... for_each_clear_bit_from(\g<1>, \g<2>, \g<3>)
 ///

@@ -1,4 +1,4 @@
-/// convert to use beXX_add_cpu()
+/// convert to use {{newfunc}}
 ///
 /// Except File: include/linux/byteorder/generic.h : implementation file
 ///
