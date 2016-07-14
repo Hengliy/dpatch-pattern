@@ -44,9 +44,9 @@ type T;
 
 int fn_remove(...)
 {
-	T drvdata = fn(...);
-	gpiochip_remove(chip);
-	return ...;
+? T drvdata = fn(...);
+  gpiochip_remove(chip);
+  return ...;
 }
 
 @p1 depends on r1 && !content && (!full || r3)@
@@ -69,9 +69,9 @@ expression r1.chip;
 @@
 int fn_probe(struct platform_device *pdev)
 {
-  ...
+  <+...
 - gpiochip_remove(chip);
-  ...
+  ...+>
 }
 
 @p3 depends on p1@
@@ -94,8 +94,8 @@ type T;
 
 - int fn_remove(...)
 - {
-- 	T drvdata = fn(...);
-- 	return ...;
+?-  T drvdata = fn(...);
+-   return ...;
 - }
 
 @p5 depends on p4@
