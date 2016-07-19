@@ -18,7 +18,7 @@ int fn_init(void)
 identifier fn_exit;
 identifier r1.driver;
 @@
-static void fn_exit(void)
+void fn_exit(void)
 {
 	platform_driver_unregister(&driver);
 }
@@ -52,11 +52,11 @@ identifier r2.fn_exit;
 identifier r1.driver, r1.probe;
 @@
 
--static void fn_exit(void)
++ module_platform_driver_probe(driver, probe);
+-void fn_exit(void)
 -{
 -	platform_driver_unregister(&driver);
 -}
-+ module_platform_driver_probe(driver, probe);
 
 @depends on r1 && r2 && r3 && r4@
 identifier r1.fn_init;

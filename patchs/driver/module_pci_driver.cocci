@@ -18,7 +18,7 @@ static int fn_init(void)
 identifier fn_exit;
 identifier r1.driver;
 @@
-static void fn_exit(void)
+void fn_exit(void)
 {
 	pci_unregister_driver(&driver);
 }
@@ -51,11 +51,11 @@ identifier r1.driver;
 declarer name module_pci_driver;
 @@
 
--static void fn_exit(void)
++ module_pci_driver(driver);
+-void fn_exit(void)
 -{
 -	pci_unregister_driver(&driver);
 -}
-+ module_pci_driver(driver);
 
 @depends on r1 && r2 && r3 && r4@
 identifier r1.fn_init;

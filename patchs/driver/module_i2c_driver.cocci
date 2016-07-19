@@ -16,7 +16,7 @@ int fn_init(void)
 identifier fn_exit;
 identifier r1.driver;
 @@
-static void fn_exit(void)
+void fn_exit(void)
 {
 	i2c_del_driver(&driver);
 }
@@ -49,11 +49,11 @@ identifier r1.driver;
 declarer name module_i2c_driver;
 @@
 
--static void fn_exit(void)
++ module_i2c_driver(driver);
+-void fn_exit(void)
 -{
 -	i2c_del_driver(&driver);
 -}
-+ module_i2c_driver(driver);
 
 @depends on r1 && r2 && r3 && r4@
 identifier r1.fn_init;

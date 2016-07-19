@@ -1,6 +1,6 @@
 /// use devm_gpiochip_add_data() for gpio registration
 ///
-/// Options: -D full
+/// Options: -D fullmatch
 ///
 /// Use devm_gpiochip_add_data() for GPIO registration and remove
 /// the need of driver callback .remove.
@@ -8,7 +8,7 @@
 
 virtual patch
 virtual content
-virtual full
+virtual fullmatch
 
 @r1@
 identifier fn_probe;
@@ -19,7 +19,11 @@ expression chip, data;
 int fn_probe(struct platform_device *pdev)
 {
   ...
+(
   gpiochip_add_data(chip, data)
+|
+  gpiochip_add(chip)
+)
   ...
 }
 
@@ -49,7 +53,7 @@ int fn_remove(...)
   return ...;
 }
 
-@p1 depends on r1 && !content && (!full || r3)@
+@p1 depends on r1 && !content && (!fullmatch || r3)@
 identifier r1.fn_probe;
 identifier r1.pdev;
 expression r1.chip, r1.data;
@@ -57,8 +61,13 @@ expression r1.chip, r1.data;
 int fn_probe(struct platform_device *pdev)
 {
   ...
+(
 - gpiochip_add_data(chip, data)
 + devm_gpiochip_add_data(&pdev->dev, chip, data)
+|
+- gpiochip_add(chip)
++ devm_gpiochip_add_data(&pdev->dev, chip, NULL)
+)
   ...
 }
 
@@ -123,4 +132,3 @@ msg = """Use devm_gpiochip_add_data() for GPIO registration and remove
 the need of driver callback .remove."""
 
 print msg
-

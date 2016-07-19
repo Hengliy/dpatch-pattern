@@ -16,7 +16,7 @@ int fn_init(void)
 identifier fn_exit;
 identifier r1.driver;
 @@
-static void fn_exit(void)
+void fn_exit(void)
 {
 	ntb_unregister_client(&driver);
 }
@@ -49,11 +49,11 @@ identifier r2.fn_exit;
 identifier r1.driver;
 @@
 
--static void fn_exit(void)
++ module_ntb_client(driver);
+-void fn_exit(void)
 -{
 -	ntb_unregister_client(&driver);
 -}
-+ module_ntb_client(driver);
 
 @depends on r1 && r2 && r3 && r4@
 identifier r1.fn_init;

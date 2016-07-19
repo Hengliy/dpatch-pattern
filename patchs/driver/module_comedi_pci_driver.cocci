@@ -18,7 +18,7 @@ int fn_init(void)
 identifier fn_exit;
 identifier r1.driver;
 @@
-static void fn_exit(void)
+void fn_exit(void)
 {
 	comedi_pci_driver_unregister(&driver);
 }
@@ -51,11 +51,11 @@ identifier r2.fn_exit;
 identifier r1.driver, r1.pci;
 @@
 
--static void fn_exit(void)
++ module_comedi_pci_driver(driver, pci);
+-void fn_exit(void)
 -{
 -	comedi_pci_driver_unregister(&driver);
 -}
-+ module_comedi_pci_driver(driver, pci);
 
 @depends on r1 && r2 && r3 && r4@
 identifier r1.fn_init;
