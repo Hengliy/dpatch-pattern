@@ -8,42 +8,47 @@
 /// This is detected by Coccinelle semantic patch.
 ///
 
-@r@
+@r1@
 identifier s, fld;
+struct s *mm;
+@@
+  spin_lock_init(\(&mm->fld\|&(mm->fld)\))
+
+@r2@
+identifier r1.s, r1.fld;
+position p;
 @@
 
 struct s {
   ...
-  spinlock_t fld;
+  spinlock_t fld@p;
   ...
 };
 
-@ok1@
-identifier r.s, r.fld;
+@r3@
+identifier s, fld;
+position p != {r2.p};
+@@
+
+struct s {
+  ...
+  spinlock_t fld@p;
+  ...
+};
+
+@r4@
+identifier r3.fld;
+identifier r3.s;
 struct s *mm;
 @@
-  spin_lock_init(&mm->fld)
+(
+ \(spin_lock\|spin_lock_bh\|spin_trylock\|spin_lock_irq\)(&mm->fld)
+|
+ spin_lock_irqsave(&mm->fld,...)
+)
 
-@ok2@
-identifier r.s, r.fld;
+@depends on r4@
+identifier r3.s;
 struct s *mm;
-position p;
 @@
-  mm@p = \(kmalloc\|kzalloc\|devm_kmalloc\|devm_kzalloc\)(...)
-<+...
-  spin_lock_init(&mm->fld)
-...+>
-
-@r1@
-identifier r.fld;
-expression E;
-@@
- spin_lock(&E->fld)
-
-@depends on !ok1 && r1@
-identifier r.s;
-struct s *mm;
-position p != {ok2.p};
-@@
-* mm@p = \(kmalloc\|kzalloc\|devm_kmalloc\|devm_kzalloc\)(...)
-
+* mm = \(kmalloc\|kzalloc\|devm_kmalloc\|devm_kzalloc\)(...)
