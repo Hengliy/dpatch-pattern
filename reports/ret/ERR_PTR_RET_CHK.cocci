@@ -161,7 +161,6 @@ d_alloc_parallel\|
 d_obtain_alias\|
 d_obtain_root\|
 d_path\|
-d_splice_alias\|
 dasd_alloc_block\|
 dasd_device_from_cdev\|
 dasd_get_user_string\|
