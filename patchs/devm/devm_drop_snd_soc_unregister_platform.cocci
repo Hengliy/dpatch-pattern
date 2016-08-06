@@ -1,4 +1,4 @@
-/// drop unneed snd_soc_unregister_platform()
+/// drop unnessary snd_soc_unregister_platform()
 ///
 /// It's not necessary to unregister platform which registered
 /// with devm_snd_soc_register_card().

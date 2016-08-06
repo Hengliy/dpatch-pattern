@@ -1,4 +1,4 @@
-/// drop unneed backlight_device_unregister()
+/// drop unnessary backlight_device_unregister()
 ///
 /// It's not necessary to unregister backlight device which
 /// registered with devm_backlight_device_register().

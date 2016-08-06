@@ -16,7 +16,7 @@ identifier r.spinlock;
 
 @depends on p1@
 identifier r.spinlock;
-declarer name DEFINE_IDR;
+declarer name DEFINE_SPINLOCK;
 @@
 - spinlock_t spinlock;
 + DEFINE_SPINLOCK(spinlock);

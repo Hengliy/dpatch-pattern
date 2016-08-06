@@ -1,4 +1,4 @@
-/// remove unneeded regulator_unregister() call
+/// remove unnessary regulator_unregister() call
 ///
 /// It's not necessary to unregister regulator which registered
 /// with devm_regulator_register() and using regulator_unregister()

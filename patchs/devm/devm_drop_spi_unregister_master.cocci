@@ -1,4 +1,4 @@
-/// drop unneeded spi_unregister_master() call
+/// drop unnessary spi_unregister_master() call
 ///
 /// It's not necessary to unregister SPI master controller registered
 /// with devm_spi_register_master().

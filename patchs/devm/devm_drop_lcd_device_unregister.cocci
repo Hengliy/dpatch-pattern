@@ -1,4 +1,4 @@
-/// drop unneed lcd_device_unregister()
+/// drop unnecessary lcd_device_unregister()
 ///
 /// It's not necessary to unregister object which registered
 /// with devm_lcd_device_register().

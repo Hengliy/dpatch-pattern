@@ -3,6 +3,9 @@
 /// Add missing platform_set_drvdata() in {{function}}, otherwise
 /// calling platform_get_drvdata() in remove returns NULL.
 ///
+/// This is detected by Coccinelle semantic patch.
+///
+
 @r1@
 identifier fn_probe;
 identifier fn_remove;

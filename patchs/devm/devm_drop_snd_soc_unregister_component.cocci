@@ -1,4 +1,4 @@
-/// drop unneed snd_soc_unregister_component()
+/// drop unnessary snd_soc_unregister_component()
 ///
 /// It's not necessary to unregister a component registered
 /// with devm_snd_soc_register_component().

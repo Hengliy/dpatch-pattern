@@ -1,4 +1,4 @@
-/// drop unneeded rtc_device_unregister() call
+/// drop unnessary rtc_device_unregister() call
 ///
 /// It's not necessary to unregister RTC device which registered
 /// with devm_rtc_device_register().

@@ -1,4 +1,4 @@
-/// remove unneeded regulator_bulk_free() call
+/// remove unnessary regulator_bulk_free() call
 ///
 /// It's not necessary to free regulators which registered with
 /// devm_regulator_bulk_get() and using regulator_bulk_free() leads

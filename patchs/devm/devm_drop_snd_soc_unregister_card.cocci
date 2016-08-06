@@ -1,4 +1,4 @@
-/// drop unneed snd_soc_unregister_card()
+/// drop unnessary snd_soc_unregister_card()
 ///
 /// It's not necessary to unregister card which registered
 /// with devm_snd_soc_register_card().
