@@ -7,7 +7,7 @@
 /// return to prevent stale device node references from
 /// being left behind.
 ///
-/// Found by Coccinelle.
+/// This is detected by Coccinelle semantic patch.
 ///
 virtual patch
 virtual context

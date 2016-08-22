@@ -6,7 +6,7 @@
 /// refcount incremented in this function. of_node_put() on it before
 /// exitting this function.
 ///
-/// Found by Coccinelle.
+/// This is detected by Coccinelle semantic patch.
 ///
 virtual patch
 virtual context

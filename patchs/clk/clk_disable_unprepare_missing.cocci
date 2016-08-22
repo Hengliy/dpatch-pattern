@@ -1,4 +1,4 @@
-/// add missing clk_disable_unprepare() on error in {{function}}
+/// fix missing clk_disable_unprepare() on error in {{function}}
 ///
 /// Except File: drivers/net/ethernet/freescale/fs_enet/fs_enet-main.c : special case that can not detect correctly
 /// Except File: drivers/tty/serial/imx.c : special case that can not detect correctly
@@ -8,7 +8,7 @@
 /// Except File: drivers/tty/serial/mpc52xx_uart.c : special case that can not detect correctly
 /// Except File: drivers/spi/spi-bcm63xx.c : special case that can not detect correctly
 ///
-/// Add the missing clk_disable_unprepare() before return
+/// Fix the missing clk_disable_unprepare() before return
 /// from {{function}} in the error handling case.
 ///
 @ok1 exists@

@@ -6,7 +6,7 @@
 /// break or return, of_node_put() should be used to prevent
 /// stale device node references from being left behind.
 ///
-/// Found by Coccinelle.
+/// This is detected by Coccinelle semantic patch.
 ///
 virtual patch
 virtual context

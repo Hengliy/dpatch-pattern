@@ -1,8 +1,8 @@
-/// fix {{parameter}} parameter description
+/// fix typo in parameter description
 ///
 /// Options: -D context
 ///
-/// Fix '{{parameter}}' parameter description.
+/// Fix typo in parameter description.
 ///
 
 virtual org

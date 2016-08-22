@@ -1,4 +1,4 @@
-/// add missing destroy_workqueue() on error in {{function}}
+/// fix missing destroy_workqueue() on error in {{function}}
 ///
 /// Except File: fs/sysfs/file.c : special case that can not detect correctly
 /// Except File: drivers/net/ethernet/chelsio/cxgb3/cxgb3_main.c : special case that can not detect correctly

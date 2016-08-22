@@ -48,7 +48,6 @@ audit_alloc_mark\|
 audit_dupe_rule\|
 audit_unpack_string\|
 backlight_device_register\|
-berlin2_pll_register\|
 bfs_iget\|
 bio_integrity_alloc\|
 bio_map_kern\|

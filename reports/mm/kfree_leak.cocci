@@ -36,8 +36,8 @@
 /// Except File: net/sched/cls_u32.c : special case that can not detect correctly
 /// Except File: drivers/nvme/host/pci.c : special case that can not detect correctly
 ///
-/// memory is malloced in {{function}} and should be freed before
-/// leaving from the error handling cases, otherwise it will cause
+/// '{{parameter}} is malloced in {{function}} and should be freed
+/// before leaving from the error handling cases, otherwise it will cause
 /// memory leak.
 ///
 @r1 exists@
