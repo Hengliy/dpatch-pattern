@@ -1,4 +1,4 @@
-/// fix missing clk_disable_unprepare() in {{function}}
+/// add missing clk_disable_unprepare() in {{function}}
 ///
 /// Except File: drivers/media/platform/fsl-viu.c : special case that can not detect correctly
 /// Except File: drivers/spi/spi-atmel.c : special case that can not detect correctly

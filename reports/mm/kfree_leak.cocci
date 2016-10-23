@@ -1,42 +1,6 @@
 /// fix possible memory leak in {{function}}
 ///
-/// Except File: sound/core/seq/oss/seq_oss_synth.c : special case that can not detect correctly
-/// Except File: net/ipv6/mcast.c : special case that can not detect correctly
-/// Except File: net/ipv6/ipv6_sockglue.c : special case that can not detect correctly
-/// Except File: net/ipv4/igmp.c : special case that can not detect correctly
-/// Except File: drivers/uwb/reset.c : special case that can not detect correctly
-/// Except File: drivers/target/target_core_pr.c : special case that can not detect correctly
-/// Except File: drivers/target/iscsi/iscsi_target.c : special case that can not detect correctly
-/// Except File: drivers/mtd/tests/mtd_stresstest.c : special case that can not detect correctly
-/// Except File: drivers/usb/host/fhci-hcd.c : special case that can not detect correctly
-/// Except File: drivers/crypto/nx/nx-842.c : special case that can not detect correctly
-/// Except File: drivers/mtd/tests/mtd_speedtest.c : special case that can not detect correctly
-/// Except File: drivers/mtd/lpddr/qinfo_probe.c : special case that can not detect correctly
-/// Except File: drivers/mtd/chips/gen_probe.c : special case that can not detect correctly
-/// Except File: drivers/s390/block/dasd_diag.c : special case that can not detect correctly
-/// Except File: drivers/scsi/ips.c : special case that can not detect correctly
-/// Except File: drivers/net/wan/cosa.c : special case that can not detect correctly
-/// Except File: drivers/target/iscsi/iscsi_target_login.c : special case that can not detect correctly
-/// Except File: arch/x86/kernel/microcode_intel_early.c : special case that can not detect correctly
-/// Except File: drivers/vme/vme.c : special case that can not detect correctly
-/// Except File: drivers/infiniband/hw/mlx5/qp.c : special case that can not detect correctly
-/// Except File: drivers/infiniband/hw/mlx5/mr.c : special case that can not detect correctly
-/// Except File: drivers/acpi/pci_irq.c : special case that can not detect correctly
-/// Except File: drivers/mtd/tests/stresstest.c : special case that can not detect correctly
-/// Except File: drivers/mtd/tests/speedtest.c : special case that can not detect correctly
-/// Except File: drivers/net/ethernet/sfc/ef10.c : special case that can not detect correctly
-/// Except File: drivers/target/loopback/tcm_loop.c : special case that can not detect correctly
-/// Except File: fs/squashfs/file_direct.c : special case that can not detect correctly
-/// Except File: fs/ubifs/tnc.c : special case that can not detect correctly
-/// Except File: drivers/iommu/intel_irq_remapping.c : special case that can not detect correctly
-/// Except File: arch/x86/kernel/cpu/microcode/intel_early.c : special case that can not detect correctly
-/// Except File: drivers/staging/tidspbridge/rmgr/drv_interface.c : special case that can not detect correctly
-/// Except File: drivers/char/hw_random/core.c : special case that can not detect correctly
-/// Except File: drivers/acpi/acpi_lpss.c : special case that can not detect correctly
-/// Except File: net/sched/cls_u32.c : special case that can not detect correctly
-/// Except File: drivers/nvme/host/pci.c : special case that can not detect correctly
-///
-/// '{{parameter}} is malloced in {{function}} and should be freed
+/// '{{parameter}}' is malloced in {{function}} and should be freed
 /// before leaving from the error handling cases, otherwise it will cause
 /// memory leak.
 ///

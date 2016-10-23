@@ -282,7 +282,6 @@ drm_atomic_state_alloc\|
 drm_calloc_large\|
 drm_crtc_find\|
 drm_cvt_mode\|
-drm_dev_alloc\|
 drm_encoder_find\|
 drm_gem_object_lookup\|
 drm_get_edid\|

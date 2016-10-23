@@ -235,6 +235,7 @@ dma_buf_map_attachment\|
 dma_request_chan\|
 dma_request_slave_channel_reason\|
 dqget\|
+drm_dev_alloc\|
 drm_atomic_get_connector_state\|
 drm_atomic_get_crtc_state\|
 drm_atomic_get_plane_state\|
