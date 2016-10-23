@@ -1,4 +1,4 @@
-/// Make sure (of/i2c/platform)_device_id tables are NULL terminated
+/// Make sure of_device_id tables are NULL terminated
 //
 // Keywords: of_device_id
 // Confidence: Medium
