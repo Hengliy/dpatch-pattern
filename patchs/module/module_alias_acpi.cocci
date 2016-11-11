@@ -54,6 +54,7 @@ struct acpi_device_id ids@p[] = { ... };
 @acpi_driver@
 identifier drv, apic_ids.ids;
 identifier driver, fld;
+type T;
 @@
 (
 T drv = {

@@ -1,38 +1,44 @@
-/// Make sure of_device_id tables are NULL terminated
-//
-// Keywords: of_device_id
-// Confidence: Medium
-// Options: --include-headers
+/// add terminate entry for of_device_id tables
+///
+/// Make sure of_device_id tables are NULL terminated.
+///
 
-virtual patch
-virtual context
-virtual org
-virtual report
+@r1@
+identifier ids;
+position p;
+@@
+struct of_device_id ids@p[] = { ... };
 
-@depends on context@
-identifier var, arr;
-expression E;
+@r2@
+identifier drv, r1.ids;
+identifier driver, fld;
+type T;
 @@
 (
-struct of_device_id arr[] = {
-	...,
-	{
-	.var = E,
-*	}
+T drv = {
+  ...,
+  .fld = ids,
+  ...
 };
 |
-struct of_device_id arr[] = {
-	...,
-*	{ ..., E, ... },
+T drv = {
+  ...,
+  .driver = {
+     ...,
+     .fld = ids,
+     ...
+  },
+  ...
 };
 )
 
-@depends on patch@
-identifier var, arr;
+@depends on r2@
+identifier var, r1.ids;
 expression E;
+position r1.p;
 @@
 (
-struct of_device_id arr[] = {
+struct of_device_id ids@p[] = {
 	...,
 	{
 	.var = E,
@@ -41,45 +47,9 @@ struct of_device_id arr[] = {
 +	{ }
 };
 |
-struct of_device_id arr[] = {
+struct of_device_id ids@p[] = {
 	...,
 	{ ..., E, ... },
 +	{ },
 };
 )
-
-@r depends on org || report@
-position p1;
-identifier var, arr;
-expression E;
-@@
-(
-struct of_device_id arr[] = {
-	...,
-	{
-	.var = E,
-	}
-	@p1
-};
-|
-struct of_device_id arr[] = {
-	...,
-	{ ..., E, ... }
-	@p1
-};
-)
-
-@script:python depends on org@
-p1 << r.p1;
-arr << r.arr;
-@@
-
-cocci.print_main(arr,p1)
-
-@script:python depends on report@
-p1 << r.p1;
-arr << r.arr;
-@@
-
-msg = "%s is not NULL terminated at line %s" % (arr, p1[0].line)
-coccilib.report.print_report(p1[0],msg)

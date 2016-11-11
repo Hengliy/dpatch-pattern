@@ -749,4 +749,4 @@ msg = """In case of error, the function %s() returns ERR_PTR()
 and never returns NULL. The NULL test in the return value check
 should be replaced with IS_ERR()."""
 
-print msg % fn
+print(msg % fn)

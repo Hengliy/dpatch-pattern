@@ -39,6 +39,7 @@ position p;
        when != dlm_destroy_dlm_worker(...)
        when != brcmf_sdio_remove(...)
        when != mwifiex_terminate_workqueue(...)
+       when != mlx5e_arfs_destroy_tables(...)
        when forall
    return@p E;
   }

@@ -140,7 +140,7 @@ msg = """Use devm_led_classdev_register() for LED device registration and
 remove the call of led_classdev_unregister() from .remove callback
 to remove LED device. This is done by managed device framework."""
 
-print msg
+print("%s" % msg)
 
 @script:python depends on r1 && r5 && content@
 @@
@@ -149,5 +149,5 @@ msg = """Use devm_led_classdev_register() for led device registration and
 get rid of .remove callback to remove led device. This is done by
 managed device framework."""
 
-print msg
+print("%s" % msg)
 

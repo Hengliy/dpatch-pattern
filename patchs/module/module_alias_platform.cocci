@@ -34,6 +34,11 @@ position p;
 @@
 T ids@p[] = { ... };
 
+@ok2@
+declarer name MODULE_ALIAS;
+@@
+MODULE_ALIAS(...);
+
 /*
  * struct platform_device_id
  *
@@ -54,7 +59,7 @@ struct platform_driver drv = {
   ...,
 };
 
-@platform_p1 depends on ismod && platform_driver@
+@platform_p1 depends on ismod && !ok2 && platform_driver@
 identifier platform_ids.ids;
 @@
   struct platform_device_id ids[] = { ... };

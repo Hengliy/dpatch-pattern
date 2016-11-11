@@ -3,10 +3,6 @@
 /// Make sure pnp_device_id tables have terminate entry.
 ///
 
-/// FIXME:
-/// static const struct pnp_device_id *match_device(struct pnp_driver *drv,
-///
-
 @@
 identifier ids, fld;
 expression E;

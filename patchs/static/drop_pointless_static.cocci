@@ -46,7 +46,23 @@ T func(...)
   ...
 }
 
-@depends on r1 && !ok1 && !patch && context@
+@ok2@
+identifier r1.func, r1.v;
+expression E;
+position r1.p, r1.p2;
+type r1.T, r1.T2;
+@@
+
+T func(...)
+{
+  ...
+  static T2 v@p;
+  ... when != v
+  v@p2 = E(..., v, ...)
+  ...
+}
+
+@depends on r1 && !ok1 && !ok2 && !patch && context@
 identifier r1.func, r1.v;
 expression r1.E;
 position r1.p;
@@ -62,7 +78,7 @@ T func(...)
   ...
 }
 
-@depends on r1 && !ok1 && patch && !context@
+@depends on r1 && !ok1&& !ok2 && patch && !context@
 identifier r1.func, v;
 type T, T2;
 @@
