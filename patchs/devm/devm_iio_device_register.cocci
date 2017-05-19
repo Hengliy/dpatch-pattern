@@ -146,7 +146,7 @@ T driver = {
 @@
 msg = "Use devm_iio_device_register() for IIO subsystem device registration."
 
-print msg
+print("%s" % msg)
 
 @script:python depends on r1 && r2 && r5 && content@
 @@
@@ -155,5 +155,5 @@ msg = """Use devm_iio_device_register() for IIO subsystem device
 registration and delete the remove function since there
 is no need after this change."""
 
-print msg
+print("%s" % msg)
 

@@ -167,7 +167,7 @@ struct platform_driver driver = {
 msg = """Use devm_reset_controller_register() for the reset controller
 registration and fixes the memory leak when unload the module."""
 
-print msg
+print("%s" % msg)
 
 @script:python depends on r2 && r3 && !r5 && content@
 @@
@@ -175,7 +175,7 @@ msg = """Use devm_reset_controller_register() for the reset controller
 registration and remove the unregister call from the .remove
 callback."""
 
-print msg
+print("%s" % msg)
 
 @script:python depends on r2 && r3 && r5 && content@
 @@
@@ -183,5 +183,5 @@ print msg
 msg = """Use devm_reset_controller_register() for the reset controller
 registration and drop the .remove callback."""
 
-print msg
+print("%s" % msg)
 

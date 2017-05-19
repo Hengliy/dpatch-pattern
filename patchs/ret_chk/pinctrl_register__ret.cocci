@@ -1,8 +1,8 @@
 /// fix return value check in {{function}}
 ///
 /// In case of error, the function pinctrl_register() returns
-/// NULL not ERR_PTR(). The IS_ERR() test in the return value
-/// check should be replaced with NULL test.
+/// ERR_PTR() not NULL. The NULL test in the return value check
+/// should be replaced with IS_ERR().
 ///
 @@
 expression ret, E;

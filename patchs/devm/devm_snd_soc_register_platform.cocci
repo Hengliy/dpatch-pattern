@@ -135,5 +135,5 @@ T driver = {
 msg = """Using snd_soc_register_platform() can make the code
 shorter and cleaner."""
 
-print msg
+print("%s" % msg)
 

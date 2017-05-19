@@ -65,6 +65,7 @@ int fn_probe(struct platform_device *pdev)
       when != rdata = regulator_register(...)
       when != arcpgu_load(data)
       when != atmel_hlcdc_dc_load(data)
+      when != devm_iio_device_alloc(...)
       when forall
 + platform_set_drvdata(pdev, data);
 ? return 0;

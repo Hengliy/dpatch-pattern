@@ -137,5 +137,5 @@ T driver = {
 msg = """Using devm_snd_soc_register_component() can make the code
 shorter and cleaner."""
 
-print msg
+print("%s" % msg)
 

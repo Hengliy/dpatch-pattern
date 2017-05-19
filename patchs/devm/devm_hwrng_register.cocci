@@ -161,7 +161,7 @@ T fn_probe(...)
 msg = """Use resource managed function devm_hwrng_register() instead
 of hwrng_register to make the error-path simpler."""
 
-print msg
+print("%s" % msg)
 
 @script:python depends on r1 && r5 && content@
 @@
@@ -170,7 +170,7 @@ msg = """Use resource managed function devm_hwrng_register() instead
 of hwrng_register to make the error-path simpler. Also get
 rid of .remove callback."""
 
-print msg
+print("%s" % msg)
 
 @script:python depends on org && (!fullmatch || r4 || !r3)@
 p << r1.p;

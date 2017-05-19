@@ -123,7 +123,7 @@ struct platform_driver driver = {
 @@
 msg = "Use devm_gpiochip_add_data() for GPIO registration."
 
-print msg
+print(msg)
 
 @script:python depends on r1 && r3 && content@
 @@
@@ -131,4 +131,4 @@ print msg
 msg = """Use devm_gpiochip_add_data() for GPIO registration and remove
 the need of driver callback .remove."""
 
-print msg
+print(msg)

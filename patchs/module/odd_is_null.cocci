@@ -1,6 +1,6 @@
 /// fix return value check in {{function}}
 ///
-/// Fix the retrn value check which testing the wrong variable
+/// Fix the return value check which testing the wrong variable
 /// in {{function}}.
 ///
 

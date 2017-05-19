@@ -137,7 +137,7 @@ T driver = {
 @@
 msg = "Use devm_spi_register_master() to make cleanup paths simpler."
 
-print msg
+print("%s" % msg)
 
 @script:python depends on r2 && r5 && content@
 @@
@@ -145,5 +145,5 @@ print msg
 msg = """Use devm_spi_register_master() to make cleanup paths simpler,
 and drop unnecessary .remove callback."""
 
-print msg
+print("%s" % msg)
 
